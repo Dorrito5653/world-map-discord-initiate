@@ -1,7 +1,19 @@
+*{
+    background: url('../images/formwallpaper.jpg');
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    background: none;
+}
+
 form {
     text-align: center;
     line-height: 75px;
     font-size: 30px;
     font-style: oblique;
-    background-image: url('../images/background.jpg');
+    color: white;
+    background: none;
+    /* background-image: url('../images/backgroundbanner.png'); */
 }

@@ -19,11 +19,10 @@ body h1 {
 body p{
     font-size: 22px;
     margin: 0;
-    color:aqua;
+    color:darkslategray;
 }
 body section{
-    background-size: 60px;
-    background-color: black;
+    background: lightslategray;
     font-size: 18px;
     margin: 0;
     position: absolute;
@@ -31,6 +30,7 @@ body section{
     left: 50%;
     transform: translate(-50%, 50%)
 }
+
 /* body section .login{
     background-color: greenyellow;
     border: 2px solid rgba(120, 120, 120, 0);
