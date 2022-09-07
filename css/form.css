@@ -4,4 +4,6 @@ form {
     font-size: 30px;
     font-style: oblique;
     background-image: url('../images/background.jpg');
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
