@@ -6,5 +6,6 @@ We have a long list of policies including multiple counts of misuse of action to
 How to use
 #1: Clone this repo
 #2: To the dotenv add DBTOKEN=your_mongodb_collection_string
-#3: Make some collections to store things like login info player stats and more. 
-#4: Open the html file and use it
+#3: Make some collections to store things like login info player stats and more.
+#4: Do npm i mongoose in the terminal 
+#5: Open the html file and use it
