@@ -1,0 +1,22 @@
+{
+  "name": "world-map-discord-initiate",
+  "version": "1.0.0",
+  "description": "Yes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dorrito5653/world-map-discord-initiate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dorrito5653/world-map-discord-initiate/issues"
+  },
+  "homepage": "https://github.com/Dorrito5653/world-map-discord-initiate#readme",
+  "dependencies": {
+    "mongoose": "^6.5.4"
+  }
+}
