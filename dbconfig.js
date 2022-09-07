@@ -11,6 +11,7 @@ const LoginSchema = new mongoose.Schema({
     vip: mongoose.Schema.Types.Boolean,
 });
 const LoginSchemaModel = mongoose.model("accounts", LoginSchema);
+
 module.exports = {
     LoginSchemaModel
 }
