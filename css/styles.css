@@ -21,8 +21,15 @@ body p{
     margin: 0;
     color:darkslategray;
 }
+<<<<<<< HEAD
 body section{
     background: lightslategray;
+=======
+
+body section {
+    background-size: 60px;
+    background-color: black;
+>>>>>>> ea955f30f8b54802685a70f03ff92232fca21003
     font-size: 18px;
     margin: 0;
     position: absolute;
@@ -31,7 +38,11 @@ body section{
     transform: translate(-50%, 50%)
 }
 
+<<<<<<< HEAD
 /* body section .login{
+=======
+body section .button{
+>>>>>>> ea955f30f8b54802685a70f03ff92232fca21003
     background-color: greenyellow;
     border: 2px solid rgba(120, 120, 120, 0);
     color: white;
@@ -40,4 +51,8 @@ body section{
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-} */
+}
+
+body section .button a {
+    text-decoration: none;
+}
