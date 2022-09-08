@@ -2,10 +2,15 @@
     background: url('../images/formwallpaper.jpg');
 }
 
+section {
+    background: black;
+}
+
 h1 {
     font-size: 36px;
     text-align: center;
     background: none;
+    color: white;
 }
 
 form {
@@ -14,6 +19,11 @@ form {
     font-size: 30px;
     font-style: oblique;
     color: white;
-    background: none;
+    background: black;
     /* background-image: url('../images/backgroundbanner.png'); */
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
 }
