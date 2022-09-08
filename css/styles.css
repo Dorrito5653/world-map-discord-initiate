@@ -21,7 +21,8 @@ body p{
     margin: 0;
     color:aqua;
 }
-body section{
+
+body section {
     background-size: 60px;
     background-color: black;
     font-size: 18px;
@@ -31,7 +32,8 @@ body section{
     left: 50%;
     transform: translate(-50%, 50%)
 }
-/* body section .login{
+
+body section .button{
     background-color: greenyellow;
     border: 2px solid rgba(120, 120, 120, 0);
     color: white;
@@ -40,4 +42,8 @@ body section{
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-} */
+}
+
+body section .button a {
+    text-decoration: none;
+}
