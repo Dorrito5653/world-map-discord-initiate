@@ -23,7 +23,16 @@ form {
     /* background-image: url('../images/backgroundbanner.png'); */
 }
 
-p {
+body p {
     text-align: center;
     font-size: 18px;
+}
+.bottom{
+    margin: 0;
+    position: absolute;
+    top: 75%;
+    left: 85%;
+    background: black;
+    color: white;
+    transform: translate(-50%, 50%)
 }
