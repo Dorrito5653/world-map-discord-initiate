@@ -1,5 +1,6 @@
-*{
+body{
     background: url('../images/formwallpaper.jpg');
+    background-repeat: no-repeat;
 }
 
 section {
@@ -26,6 +27,8 @@ form {
 body p {
     text-align: center;
     font-size: 18px;
+    background: none;
+    color: white;
 }
 .bottom{
     margin: 0;
