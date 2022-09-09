@@ -1,10 +1,14 @@
 const { LoginSchemaModel } = require('./dbconfig')
-async function login(){
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    console.log(username)
-    console.log(password)
-    const log = await LoginSchemaModel.find({ username: username, password: password})
-    console.log('--------')
-    if (!log) return document.writeln('could not find that login, please try again')
-}
+function submitLoginInfo () {
+    let usernameElement = document.querySelector('#username')
+    let passwordElement = document.querySelector('#password')
+
+    console.log(`Username Element is HTMLElement: ${usernameElement instanceof HTMLElement}`);
+    console.log(`Username Element is HTMLElement: ${passwordElement instanceof HTMLElement}`);
+
+    alert(`usernameElement = ${usernameElement}`);
+    alert(`passwordElement = ${passwordElement}`);
+
+    alert(`username = ${usernameElement.value}`);
+    alert(`password = ${passwordElement.value}`);
+  }
