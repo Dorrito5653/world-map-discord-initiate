@@ -1,3 +1,6 @@
+# We don't need this
+node_modules/
+
 # Secrets...
 *.env
 
