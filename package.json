@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Dorrito5653/world-map-discord-initiate#readme",
   "dependencies": {
-    "mongoose": "^6.5.4"
+    "mongoose": "^6.5.4",
+    "requirejs": "^2.3.6"
   }
 }
