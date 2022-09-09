@@ -8,6 +8,21 @@
   <link rel="stylesheet" href="../css/form.css">
   <!-- <script src="../login.js"></script> -->
   <title>WMB EXECUTE VALUATION 0.00%512</title>
+  <script>
+    function submitLoginInfo () {
+      let usernameElement = document.querySelector('#username')
+      let passwordElement = document.querySelector('#password')
+
+      console.log(`Username Element is HTMLElement: ${usernameElement instanceof HTMLElement}`);
+      console.log(`Username Element is HTMLElement: ${passwordElement instanceof HTMLElement}`);
+
+      alert(`usernameElement = ${usernameElement}`);
+      alert(`passwordElement = ${passwordElement}`);
+
+      alert(`username = ${usernameElement.value}`);
+      alert(`password = ${passwordElement.value}`);
+    }
+  </script>
 
 </head>
 
@@ -16,13 +31,12 @@
     <h1>Login to WMB EXECUTE VALUATION 0.00%512</h1>
     <form>
       <label>Enter Username:</label>
-      <input type="text" id="username" action="" required>
+      <input type="text" id="username" required>
       <br>
       <label>Enter Password:</label>
-      <input type="password" id="password" required>
+      <input id="password" type="password" required>
       <br>
-      <input type="submit">
-      <script src="../login.js"></script>
+      <input type="submit" onclick="submitLoginInfo()">
     </form>
   </section>
   <p>© Copyright by Existing Studios(ES)</p>
