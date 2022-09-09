@@ -1,10 +1,6 @@
-var requirejs = require('requirejs');
 
-requirejs.config({
-    nodeRequire: require
-});
-
-const { LoginSchemaModel } = requirejs('./dbconfig.js')
+const { LoginSchemaModel } = require('./dbconfig.js')
+// import { LoginSchemaModel } from './dbconfig'
 requirejs()
 function submitLoginInfo () {
     let usernameElement = document.querySelector('#username')
