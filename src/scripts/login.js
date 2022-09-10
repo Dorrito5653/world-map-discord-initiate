@@ -1,7 +1,7 @@
 
 // const { LoginSchemaModel } = require('./dbconfig.js')
 // import { LoginSchemaModel } from './dbconfig'
-// requirejs()
+var db = requirejs('./dbconfig.js')
 function submitLoginInfo () {
     let usernameElement = document.querySelector('#username')
     let passwordElement = document.querySelector('#password')
@@ -14,4 +14,6 @@ function submitLoginInfo () {
 
     alert(`username = ${usernameElement.value}`);
     alert(`password = ${passwordElement.value}`);
+
+    
   }
