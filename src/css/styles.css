@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('../images/wallpaper.jpg');
+    background: url('../../tools/images/wallpaper.jpg');
     background-size: cover;
 }
 body h1 {
