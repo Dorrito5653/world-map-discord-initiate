@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = requirejs(["mongoose"])
+const os = requirejs(['os'])
 mongoose.connect(process.env.DBTOKEN || '',{
     useUnifiedTopology: true,
     useNewUrlParser: true,

@@ -1,8 +1,8 @@
 
 // const { LoginSchemaModel } = require('./dbconfig.js')
 // import { LoginSchemaModel } from './dbconfig'
-var db = requirejs('./dbconfig.js')
-function submitLoginInfo () {
+var db = requirejs(['dbconfig.js'])
+async function submitLoginInfo () {
     let usernameElement = document.querySelector('#username')
     let passwordElement = document.querySelector('#password')
 
@@ -15,5 +15,9 @@ function submitLoginInfo () {
     alert(`username = ${usernameElement.value}`);
     alert(`password = ${passwordElement.value}`);
 
-    
+    const filter = { username: usernameElement.value, password: passwordElement.value }
+    const collection = await db.find(filter);
+
+    if (!collection) alert(`No such login found`);
+    else return { src: '../start.html'};
   }
