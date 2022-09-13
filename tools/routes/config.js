@@ -36,7 +36,7 @@ router.patch('/:id', (req, res) => {
     
 })
 //Deleting one
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', getAcc, async (req, res) => {
     try {
         await res.acc.remove()
         res.json({ message: 'Deleted subscriber'})
