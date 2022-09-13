@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
 })
 
 //Get one
-router.get('/:id', (req, res) => {
-    res.send(req.params.id)
+router.get('/:id', getAcc, (req, res) => {
+    res.json(res.acc)
 })
 //Creating one
 router.post('/', async (req, res) => {
@@ -36,8 +36,28 @@ router.patch('/:id', (req, res) => {
     
 })
 //Deleting one
-router.delete('/:id', (req, res) => {
-    
+router.delete('/:id', async (req, res) => {
+    try {
+        await res.acc.remove()
+        res.json({ message: 'Deleted subscriber'})
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
 })
+
+async function getAcc(req, res, next){
+    let acc;
+    try {
+        acc = await Account.findById(req.params.id)
+        if (acc == null) {
+            return res.status(404).json({ message: 'Cannot find account'})
+        }
+    } catch (err) {
+        return res.status(500).json({ message: err.message })
+    }
+
+    res.acc = acc;
+    next()
+}
 
 module.exports = router;
