@@ -1,11 +1,10 @@
 {
   "name": "world-map-discord-initiate",
   "version": "1.0.0",
-  "description": "Yes",
-  "main": "index.js",
-  "type": "module",
+  "description": "Here me and some other contributors work on making a website game with discord presence involved\r We have a long list of policies including multiple counts of misuse of action towards reviving our discord server and actually getting a life. I am just kidding there is no policy enjoy life because we have no time to write one.",
+  "main": "dbconfig.js",
   "scripts": {
-    "test": "npm run test"
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +17,11 @@
   },
   "homepage": "https://github.com/Dorrito5653/world-map-discord-initiate#readme",
   "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0"
+  },
+  "devDependencies": {
     "dotenv": "^16.0.2",
-    "mongoose": "^6.5.4",
-    "requirejs": "^2.3.6"
+    "nodemon": "^2.0.19"
   }
 }
