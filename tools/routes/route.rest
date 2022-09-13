@@ -3,3 +3,15 @@ GET http://localhost:3000/config
 ###
 
 GET http://localhost:3000/config/12
+
+###
+
+//Do not add ',' after vip please 
+POST http://localhost:3000/config
+Content-Type: application/json
+
+{
+    "username": "AtharvMoment",
+    "password": "$Egg21@vsianAI",
+    "VIP": false
+}
