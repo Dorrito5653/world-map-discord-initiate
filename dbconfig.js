@@ -1,5 +1,7 @@
-const mongoose = requirejs(["mongoose"])
-const os = requirejs(['os'])
+import dotenv from dotenv;
+dotenv.config()
+import mongoose from mongoose;
+
 mongoose.connect(process.env.DBTOKEN || '',{
     useUnifiedTopology: true,
     useNewUrlParser: true,
