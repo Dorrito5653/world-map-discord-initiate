@@ -1,15 +1,13 @@
 """
 Will be the socket server for multiplayer games
 """
-
 import socket
 import threading
 import sys
 import json
 import traceback
 
-server = ''
-
+server = socket.gethostbyname(socket.gethostname())
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,7 +17,7 @@ try:
 except socket.error as e:
     sys.stderr.write(e)
 else:
-    print('Socket binded successfully')
+    print(f'Socket binded successfully as {server, port}')
 
 
 s.listen()
