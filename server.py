@@ -12,12 +12,8 @@ port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-try:
-    s.bind((server, port))
-except socket.error as e:
-    sys.stderr.write(e)
-else:
-    print(f'Socket binded successfully as {server, port}')
+s.bind((server, port))
+print(f'Socket binded successfully as {server, port}')
 
 
 s.listen()
