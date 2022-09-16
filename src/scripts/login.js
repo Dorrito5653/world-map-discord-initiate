@@ -16,6 +16,6 @@ async function submitLoginInfo () {
     request.send();
     console.log(request.response)
 
-    if (!request.responseText) alert(`No such login found`);
+    if (!request.response) alert(`No such login found`);
     else return { src: '../start.html'};
   }
