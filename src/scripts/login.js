@@ -11,9 +11,11 @@ async function submitLoginInfo () {
     alert(`username = ${usernameElement.value}`);
     alert(`password = ${passwordElement.value}`);
 
-    const filter = { username: usernameElement.value, password: passwordElement.value }
-    const collection = await LoginSchemaModel.find(filter);
+    const request = new XMLHttpRequest()
+    request.open("GET", `localhost:3000/config/${usernameElement.value}`);
+    request.send();
+    console.log(request.response)
 
-    if (!collection) alert(`No such login found`);
+    if (!request.responseText) alert(`No such login found`);
     else return { src: '../start.html'};
   }

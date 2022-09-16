@@ -2,7 +2,7 @@ GET http://localhost:3000/config/
 
 ###
 
-GET http://localhost:3000/config/6320f493051e0288be08fd5e
+GET http://localhost:3000/config/dorritoShah
 
 ###
 

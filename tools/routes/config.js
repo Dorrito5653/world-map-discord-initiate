@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 })
 
 //Get one
-router.get('/:id', getAcc, (req, res) => {
+router.get('/:username', getAcc, (req, res) => {
     res.json(res.acc)
 })
 //Creating one
@@ -48,7 +48,7 @@ router.delete('/:id', getAcc, async (req, res) => {
 async function getAcc(req, res, next){
     let acc;
     try {
-        acc = await Account.findById(req.params.id)
+        acc = await Account.find({username: req.params.username})
         if (acc == null) {
             return res.status(404).json({ message: 'Cannot find account'})
         }
