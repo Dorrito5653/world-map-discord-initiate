@@ -1,39 +1,54 @@
 """
 Will be the socket server for multiplayer games
 """
-
 import socket
 import threading
-import sys
 import json
 import traceback
+import logging
+import os
 
-server = ''
+if not os.path.exists('./logs'):
+    os.mkdir('logs')
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s | %(threadName)s]: %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(f"./logs/log.log", encoding='utf-8')
+    ]
+)
+
+server = socket.gethostbyname(socket.gethostname())
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-try:
-    s.bind((server, port))
-except socket.error as e:
-    sys.stderr.write(e)
-else:
-    print('Socket binded successfully')
+s.bind((server, port))
+logging.info(f'Socket binded successfully as {server, port}')
 
 
 s.listen()
-print('Waiting for connection...')
+logging.info('Waiting for connection...')
 
 
 def new_client(conn: socket.socket):
+    reply = json.dumps({"message":"test"})
     while True:
         try:
             data = json.loads(conn.recv(2048).decode())
-            conn.send(json.dumps({"message":"test"}).encode())
+            conn.send(reply.encode())
+
+            # Don't log the sent and recieved to prevent log being large
+            print(f'Recieved: {data}')
+            print(f'Sending: {reply}')
         except Exception:
-            print("Unkown Error, disconecting imeidietly")
-            print(traceback.format_exc())
+            logging.info("Unkown Error, disconecting imeidietly")
+            logging.info(traceback.format_exc())
+            break
+    
+    conn.close()
 
 
 while True:
