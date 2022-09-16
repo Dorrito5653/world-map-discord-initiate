@@ -12,10 +12,11 @@ async function submitLoginInfo () {
     alert(`password = ${passwordElement.value}`);
 
     const request = new XMLHttpRequest()
-    request.open("GET", `localhost:3000/config/${usernameElement.value}`);
+    request.open("GET", `http://localhost:3000/config/${usernameElement.value}`);
     request.send();
     console.log(request.response)
 
     if (!request.response) alert(`No such login found`);
     else return { src: '../start.html'};
   }
+  
