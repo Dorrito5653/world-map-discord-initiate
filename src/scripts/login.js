@@ -1,7 +1,3 @@
-
-// const { LoginSchemaModel } = require('./dbconfig.js')
-// import { LoginSchemaModel } from './dbconfig'
-import { LoginSchemaModel } from '../../dbconfig.js'
 async function submitLoginInfo () {
     let usernameElement = document.querySelector('#username')
     let passwordElement = document.querySelector('#password')
