@@ -20,10 +20,14 @@ print('Waiting for connection...')
 
 
 def new_client(conn: socket.socket):
+    reply = json.dumps({"message":"test"})
     while True:
         try:
             data = json.loads(conn.recv(2048).decode())
-            conn.send(json.dumps({"message":"test"}).encode())
+            conn.send(reply.encode())
+
+            print(f'Recieved: {data}')
+            print(f'Sending: {reply}')
         except Exception:
             print("Unkown Error, disconecting imeidietly")
             print(traceback.format_exc())
