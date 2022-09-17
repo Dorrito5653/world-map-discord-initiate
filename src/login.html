@@ -7,10 +7,16 @@
   <meta name="viewport" content="initial-scale=1.0">
   <link rel="stylesheet" href="css/form.css">
   <script src="scripts/login.js"></script>
+  <script type="text/javascript">
+    async function callValidation(){
+      const json = await getLogin()
+      const validate = await validateLogin(json.jsonResponse, json.passwordElement.value)
+      return validate
+    }
+  </script>
   <title>WMB EXECUTE VALUATION 0.00%512</title>
   <link rel="icon" href="../tools/images/favicon.ico" type="image/x-icon">
 </head>
-
 <body>
   <section>
     <h1>Login to WMB EXECUTE VALUATION 0.00%512</h1>
@@ -21,7 +27,7 @@
       <label>Enter Password:</label>
       <input type="password" id="password">
       <br>
-      <input type="submit" onclick="submitLoginInfo()">
+      <input type="submit" onclick="await callValidation()">
     </form>
   </section>
   <p>© Copyright by Existing Studios(ES)</p>
