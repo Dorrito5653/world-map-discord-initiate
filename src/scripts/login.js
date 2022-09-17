@@ -1,9 +1,12 @@
 async function getLogin(username, password){
   const request = new XMLHttpRequest()
-  request.open("GET", `http://localhost:3000/config/${username}`);
-  request.send();
-  request.onload(console.log(request));
-  return request.response;
+  request.responseType = "json";
+  request.open("GET", `http://localhost:3000/config/${username}`, true);
+  let jsonResponse;
+  request.onload = function(){
+    jsonResponse = request.response;
+  };
+  return jsonResponse;
 }
 
 
