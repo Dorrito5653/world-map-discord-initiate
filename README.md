@@ -25,4 +25,4 @@ Step 4: Install required packages using
 npm install package.json
 ```
 
-Step 5: Open the html file and use it, the file is located in `./src/index.html
+Step 5: Open the html file and use it, the file is located in `./src/index.html`
