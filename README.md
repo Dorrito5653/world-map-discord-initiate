@@ -16,7 +16,9 @@ git clone https://github.com/Dorrito5653/world-map-discord-initiate.git
 ```
 
 Step 2: Add a file called `.env` then add `DBTOKEN=your_mongodb_collection_string` to the file
+
 Step 3: Make a collection called "accounts" in the mongodb database
+
 Step 4: Install required packages using
 
 ```text
