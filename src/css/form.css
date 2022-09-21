@@ -1,6 +1,7 @@
 body{
     background: url('../../tools/images/formwallpaper.jpg');
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 section {

@@ -8,9 +8,7 @@ function getLogin(){
   request.open("GET", url, true);
   let jsonResponse;
   request.onload(
-    function(){
-      jsonResponse = request.response;
-    }
+    jsonResponse = request.response
   );
   return {jsonResponse, passwordElement};
 }
@@ -22,4 +20,3 @@ function validateLogin (json, password) {
   if (password == actualpassword) return true
   else return false;
 }
-  
