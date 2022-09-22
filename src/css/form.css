@@ -1,7 +1,8 @@
-body{
+body {
     background: url('../../tools/images/formwallpaper.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 section {
@@ -21,7 +22,6 @@ form {
     font-size: 30px;
     font-style: oblique;
     color: white;
-    background: black;
     /* background-image: url('../images/backgroundbanner.png'); */
 }
 
@@ -31,7 +31,8 @@ body p {
     background: none;
     color: white;
 }
-.bottom{
+
+.bottom {
     margin: 0;
     position: absolute;
     top: 75%;
@@ -39,4 +40,53 @@ body p {
     background: black;
     color: white;
     transform: translate(-50%, 50%)
+}
+
+.input-group {
+    position: relative;
+    color: black;
+}
+
+.input {
+    border: solid 1.5px #9e9e9e;
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: white;
+}
+
+.input-label {
+    position: absolute;
+    left: 45%;
+    top: 4%;
+    font-style: normal;
+    font-size: medium;
+    pointer-events: none;
+    color: white;
+    transition: 150ms ease;
+    text-align: left;
+}
+
+.input:focus {
+    outline: none;
+    border: 1.5px solid rgb(63, 63, 240);
+}
+
+.input:focus ~ label {
+    transform: translateY(-30%) scale(0.8) translateX(-10%);
+}
+
+.input:valid ~ label {
+    display: none;
+}
+
+.submit {
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 1rem;
 }
