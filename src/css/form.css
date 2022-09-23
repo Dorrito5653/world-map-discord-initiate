@@ -42,6 +42,19 @@ body p {
     transform: translate(-50%, 50%)
 }
 
+.bottom a {
+    display: block;
+    color: black;
+    background-color: #7bd37b;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.bottom a:hover {
+    background-color: #579457;
+}
+
 .input-group {
     position: relative;
     color: black;
