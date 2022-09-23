@@ -42,6 +42,19 @@ body p {
     transform: translate(-50%, 50%)
 }
 
+.bottom a {
+    display: block;
+    color: black;
+    background-color: #7bd37b;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.bottom a:hover {
+    background-color: #579457;
+}
+
 .input-group {
     position: relative;
     color: black;
@@ -59,7 +72,7 @@ body p {
 
 .input-label {
     position: absolute;
-    left: 45%;
+    left: 50%;
     top: 4%;
     font-style: normal;
     font-size: medium;
@@ -67,6 +80,7 @@ body p {
     color: white;
     transition: 150ms ease;
     text-align: left;
+    transform: translateX(-90px);
 }
 
 .input:focus {
@@ -75,7 +89,7 @@ body p {
 }
 
 .input:focus ~ label {
-    transform: translateY(-30%) scale(0.8) translateX(-10%);
+    transform: translateY(-30%) scale(0.8) translateX(-130px);
 }
 
 .input:valid ~ label {
