@@ -59,7 +59,7 @@ body p {
 
 .input-label {
     position: absolute;
-    left: 45%;
+    left: 50%;
     top: 4%;
     font-style: normal;
     font-size: medium;
@@ -67,6 +67,7 @@ body p {
     color: white;
     transition: 150ms ease;
     text-align: left;
+    transform: translateX(-90px);
 }
 
 .input:focus {
