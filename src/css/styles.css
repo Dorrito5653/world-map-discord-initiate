@@ -51,6 +51,14 @@ h1{
     color: white;
     font-size: 24px;
 }
+
+.note{
+    position: relative;
+    text-align: right;
+    font-style: italic;
+    color: white;
+}
+
 @media only screen and (max-width: 1124px) {
     body{
         font-size: 20px;
@@ -81,7 +89,8 @@ h1{
                 body{
                     font-size: 12px;
                     text-align: right;
-                    background: url("../../tools/images/portraitwallpaper.jpg");
+                    background: url("../../tools/images/portraitwallpaper.jpg") no-repeat;
+                    background-size: cover;
                 }
                 h1{
                     font-size: 20px;
