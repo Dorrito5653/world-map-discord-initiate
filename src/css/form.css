@@ -76,7 +76,7 @@ body p {
 }
 
 .input:focus ~ label {
-    transform: translateY(-30%) scale(0.8) translateX(-160%);
+    transform: translateY(-30%) scale(0.8) translateX(-130px);
 }
 
 .input:valid ~ label {
