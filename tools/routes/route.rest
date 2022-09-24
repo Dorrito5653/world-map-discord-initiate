@@ -18,4 +18,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/config/632109385ab44034764fd853
+# DELETE http://localhost:3000/config/

@@ -5,19 +5,13 @@ async function getLogin(){
   const url = `http://localhost:3000/config/${usernameElement.value}`
   try {
     const request = new XMLHttpRequest()
-    // request.responseType = "json";
-    request.onreadystatechange = () => {
-      if (request.readyState === 4){
-        callback(request.response)
-      }
-    }
     request.open("GET", url, true);
-    // let jsonResponse;
-    // request.onload = function(){
-    //   jsonResponse = request.response
-    // };
+    let jsonResponse;
     request.send()
-    alert(request)
+    request.onload = function(){
+      jsonResponse = request.response
+      alert(request.response)
+    };
   } catch(err){
     alert(err)
   }
