@@ -1,22 +1,24 @@
-function getLogin(){
+async function getLogin(){
+  console.log('------')
   let usernameElement = document.querySelector('#username')
   let passwordElement = document.querySelector('#password')
-
-  const request = new XMLHttpRequest()
-  request.responseType = "json";
   const url = `http://localhost:3000/config/${usernameElement.value}`
-  request.open("GET", url, true);
-  let jsonResponse;
-  request.onload(
-    jsonResponse = request.response
-  );
-  return {jsonResponse, passwordElement};
-}
-
-
-function validateLogin (json, password) {
-  const username = json.username;
-  const actualpassword = json.password;
-  if (password == actualpassword) return true
-  else return false;
+  try {
+    const request = new XMLHttpRequest()
+    // request.responseType = "json";
+    request.onreadystatechange = () => {
+      if (request.readyState === 4){
+        callback(request.response)
+      }
+    }
+    request.open("GET", url, true);
+    // let jsonResponse;
+    // request.onload = function(){
+    //   jsonResponse = request.response
+    // };
+    request.send()
+    alert(request)
+  } catch(err){
+    alert(err)
+  }
 }
