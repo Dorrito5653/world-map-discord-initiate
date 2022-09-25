@@ -9,7 +9,7 @@ body{
 }
 
 
-h1{
+.title{
     font-family: Papyrus;
     font-size: 60px;
     padding: 0 0 0 0;
@@ -21,29 +21,29 @@ h1{
     left: 0;
     top: 0;
     height: 100%;
-    line-height: 60px;
     background-color: black;
     padding: 16px;
     text-align: left;
 }
 
-.sidebar section{
-    border-top: 3px solid grey;
+.sidebar ul{
+    line-height: 40px;
+    border-bottom: 3px solid grey;
 }
 
-.login{
-    position: absolute;
-    top: 80%;
-    left: 10px;
-    background-color: black;
-    color: white;
-    font-size: 24px;
+.logo{
+    border-bottom: 3px solid grey;
+
 }
 
-.register{
+.options{
     position: absolute;
-    top: 85%;
+    line-height: 30px;
+    top: 75%;
     left: 10px;
+}
+
+.opt-btn{
     background-color: black;
     color: white;
     font-size: 24px;
