@@ -27,8 +27,8 @@ h1{
     text-align: left;
 }
 
-.sidebar section{
-    border-top: 3px solid grey;
+.sidebar hr{
+    border: 2px solid grey;
 }
 
 .login-register {
