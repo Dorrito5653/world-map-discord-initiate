@@ -1,0 +1,23 @@
+.menuscreen{
+    background: url("../../tools/images/background.jpg") no-repeat;
+    background-size: cover;
+}
+
+.sidelogo{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.topbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    border-bottom: 5px solid #002F63;
+}
+
+.battle{
+    text-align: right;
+    vertical-align: top;
+    font-size: 30px;
+}
