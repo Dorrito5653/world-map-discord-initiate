@@ -18,7 +18,7 @@ async function getLogin(){
     request.send()
     request.onload = function(){
       jsonResponse = request.response
-      alert(request.response.password)
+      alert(request.response[0].password)
       // if (request.response.password != passwordElement.value) return alert('Password is Incorrect')
       // else return alert('Password is Correct')
     };
