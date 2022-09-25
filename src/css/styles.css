@@ -31,22 +31,24 @@ h1{
     border-top: 3px solid grey;
 }
 
-.login{
+.login-register {
     position: absolute;
-    top: 80%;
     left: 10px;
     background-color: black;
     color: white;
     font-size: 24px;
 }
 
+.login-register a {
+    left: 12px;
+}
+
+.login{
+    top: 80%;
+}
+
 .register{
-    position: absolute;
     top: 85%;
-    left: 10px;
-    background-color: black;
-    color: white;
-    font-size: 24px;
 }
 
 .note{
