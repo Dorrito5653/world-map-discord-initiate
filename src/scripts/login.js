@@ -2,6 +2,11 @@ async function getLogin(){
   console.log('------')
   let usernameElement = document.querySelector('#username')
   let passwordElement = document.querySelector('#password')
+
+  if (usernameElement.value == '' | passwordElement.value == '') {
+    alert('Error, no username/password given');
+    return;
+  }
   const url = `http://localhost:3000/config/${usernameElement.value}`
   try {
     const request = new XMLHttpRequest()
