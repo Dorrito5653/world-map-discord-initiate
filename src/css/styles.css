@@ -25,27 +25,66 @@ body{
     text-align: left;
 }
 
-.sidebar ul{
+.links {
     line-height: 40px;
-    border-bottom: 3px solid grey;
 }
 
-.logo{
-    border-bottom: 3px solid grey;
-
-}
-
-.options{
+.options {
     position: absolute;
     line-height: 30px;
     top: 75%;
     left: 10px;
 }
 
-.opt-btn{
+.sidebar hr{
+    border: 2px solid grey;
+}
+
+.login-register {
+    position: absolute;
+    left: 10px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+
+.sidebar {
+    line-height: 40px;
+    border-bottom: 3px solid grey;
+}
+
+.logo {
+    border-bottom: 3px solid grey;
+}
+
+.options {
+    position: absolute;
+    line-height: 30px;
+    top: 75%;
+    left: 10px;
+}
+
+.opt {
     background-color: black;
     color: white;
     font-size: 24px;
+}
+
+.skip-link {
+    position: fixed;
+    left: 15%;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    transform: translateY(-200%);
+    transition: 200ms;
+    background-color: beige;
+}
+  
+.skip-link:focus {
+    width: auto;
+    height: auto;
+    transform: translateY(100%);
 }
 
 .note-computer{
