@@ -88,6 +88,13 @@ body{
     transform: translateY(100%);
 }
 
+.note-computer{
+    position: unset;
+    text-align: center;
+    font-style: italic;
+    color: grey;
+}
+
 @media only screen and (max-width: 1124px) {
     body{
         font-size: 20px;
