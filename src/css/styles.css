@@ -9,7 +9,7 @@ body{
 }
 
 
-h1{
+.title{
     font-family: Papyrus;
     font-size: 60px;
     padding: 0 0 0 0;
@@ -21,10 +21,20 @@ h1{
     left: 0;
     top: 0;
     height: 100%;
-    line-height: 60px;
     background-color: black;
     padding: 16px;
     text-align: left;
+}
+
+.links {
+    line-height: 40px;
+}
+
+.options {
+    position: absolute;
+    line-height: 30px;
+    top: 75%;
+    left: 10px;
 }
 
 .sidebar hr{
@@ -39,28 +49,31 @@ h1{
     font-size: 20px;
 }
 
-.login-register a {
-    left: 12px;
+.sidebar {
+    line-height: 40px;
+    border-bottom: 3px solid grey;
 }
 
-.login{
-    top: 80%;
+.logo {
+    border-bottom: 3px solid grey;
 }
 
-.register{
-    top: 85%;
+.options {
+    position: absolute;
+    line-height: 30px;
+    top: 75%;
+    left: 10px;
 }
 
-.note{
-    position: relative;
-    text-align: right;
-    font-style: italic;
+.opt {
+    background-color: black;
     color: white;
+    font-size: 24px;
 }
 
 .skip-link {
     position: fixed;
-    left: 10%;
+    left: 15%;
     width: 1px;
     height: 1px;
     overflow: hidden;
