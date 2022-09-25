@@ -49,11 +49,11 @@ body{
     font-size: 24px;
 }
 
-.note{
-    position: relative;
-    text-align: right;
+.note-computer{
+    position: unset;
+    text-align: center;
     font-style: italic;
-    color: white;
+    color: grey;
 }
 
 @media only screen and (max-width: 1124px) {
