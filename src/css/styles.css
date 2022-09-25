@@ -59,12 +59,12 @@ h1{
 }
 
 .skip-link {
-    position: absolute;
+    position: fixed;
     left: 10%;
     width: 1px;
     height: 1px;
     overflow: hidden;
-    transform: translateY(-100%);
+    transform: translateY(-200%);
     transition: 200ms;
     background-color: beige;
 }
