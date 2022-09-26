@@ -18,7 +18,7 @@ async function getLogin(){
     request.send()
     request.onload = function(){
       jsonResponse = request.response
-      alert(request.response[0].password)
+      alert(request.response)
     };
   } catch(err){
     alert(err)
