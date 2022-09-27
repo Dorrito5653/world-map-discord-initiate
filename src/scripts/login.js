@@ -21,8 +21,8 @@ async function getLogin(){
       let val = JSON.parse(jsonResponse)
       if (val[0].password != passwordElement.value) return alert("Wrong username or password")
       alert(jsonResponse)
-      // window.close()
-      let newwindow = window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html', "_blank")
+      window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html','_self').close()
+      // let newwindow = window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html', "_blank")
     };
   } catch(err){
     alert(err)
