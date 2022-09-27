@@ -13,15 +13,14 @@ h1 {
     font-size: 36px;
     text-align: center;
     background: none;
-    color: white;
+    color: black;
 }
 
-form {
+section{
     text-align: center;
     line-height: 75px;
     font-size: 30px;
     font-style: oblique;
-    color: white;
     /* background-image: url('../images/backgroundbanner.png'); */
 }
 
