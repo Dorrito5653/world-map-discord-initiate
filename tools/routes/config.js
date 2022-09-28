@@ -23,6 +23,8 @@ router.post('/', async (req, res) => {
         username: req.body.username,
         password: req.body.password,
         VIP: req.body.VIP,
+        created_date: req.body.created_date,
+        updated_date: req.body.updated_date
     })
     try {
         const newacc = await acc.save()

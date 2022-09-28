@@ -9,11 +9,18 @@ section {
     background: black;
 }
 
-h1 {
+.header {
     font-size: 36px;
     text-align: center;
     background: none;
     color: black;
+}
+
+.h1 {
+    font-size: 36px;
+    text-align: center;
+    background: none;
+    color: white;
 }
 
 section{

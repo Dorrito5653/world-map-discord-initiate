@@ -28,3 +28,29 @@ async function getLogin(){
     alert(err)
   }
 }
+
+function register(){
+  const email = document.getElementById('#email')
+  const username = document.getElementById('#username')
+  const password = document.getElementById('#password')
+  let url = `http://localhost:3000/config/${username.value}`
+
+  let checkreq = new XMLHttpRequest()
+  checkreq.open("GET", url, true)
+  checkreq.send()
+  checkreq.onload = function(){
+    if (checkreq.response){
+      return alert("That username already exists. Please pick a different one")
+    }
+  }
+
+  if (password.value.length < 8 || password.value.length > 60) return alert("Length of password cannot be less than 8 characters or more than 60 characters.")
+  if (password.value){
+
+  }
+  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (!email.value.match(regex)){
+    return alert("Invalid Email")
+  }
+
+}

@@ -13,7 +13,9 @@ Content-Type: application/json
 {
     "username": "AtharvMoment",
     "password": "$Egg21@vsianAI",
-    "VIP": false
+    "VIP": false,
+    "created_date": 0,
+    "updated_date": 0
 }
 
 ###
