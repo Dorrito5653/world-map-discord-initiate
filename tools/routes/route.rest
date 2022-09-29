@@ -2,7 +2,7 @@ GET http://localhost:3000/config/
 
 ###
 
-GET http://localhost:3000/config/dorritoShah
+GET http://localhost:3000/config/Egg
 
 ###
 
@@ -13,6 +13,7 @@ Content-Type: application/json
 {
     "username": "AtharvMoment",
     "password": "$Egg21@vsianAI",
+    "email": "atharvhasALIFE@gmail.com",
     "VIP": false,
     "created_date": 0,
     "updated_date": 0
@@ -20,4 +21,4 @@ Content-Type: application/json
 
 ###
 
-# DELETE http://localhost:3000/config/
+DELETE http://localhost:3000/config/dorritoShah/

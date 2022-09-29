@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
     const acc = new Account({
         username: req.body.username,
         password: req.body.password,
+        email: req.body.email,
         VIP: req.body.VIP,
         created_date: req.body.created_date,
         updated_date: req.body.updated_date
@@ -40,6 +41,7 @@ router.patch('/:id', (req, res) => {
 //Deleting one
 router.delete('/:id', getAcc, async (req, res) => {
     try {
+        console.log(res.acc)
         await res.acc.remove()
         res.json({ message: 'Deleted subscriber'})
     } catch (err) {

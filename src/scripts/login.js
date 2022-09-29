@@ -53,4 +53,16 @@ function register(){
     return alert("Invalid Email")
   }
 
+  var data = new FormData();
+  data.append('username', `${username.value}`)
+  data.append('password', `${password.value}`)
+  data.append('email', `${email.value}`)
+  data.append('created_date')
+
+  let postreq = new XMLHttpRequest()
+  postreq.open("POST", url, true)
+  postreq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  postreq.onload = function(){
+
+  }
 }
