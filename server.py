@@ -1,57 +1,46 @@
 """
 Will be the socket server for multiplayer games
 """
-import socket
-import threading
-import json
-import traceback
+from __future__ import annotations
+from typing import TYPE_CHECKING
+import asyncio
+import websockets
 import logging
 import os
+
+if TYPE_CHECKING:
+    from websockets.legacy.server import WebSocketServerProtocol
 
 if not os.path.exists('./logs'):
     os.mkdir('logs')
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s [%(levelname)s | %(threadName)s]: %(message)s",
+    format="%(asctime)s [%(levelname)s] (%(funcName)s:%(lineno)d): %(message)s",
     handlers=[
         logging.StreamHandler(),
         logging.FileHandler(f"./logs/log.log", encoding='utf-8')
     ]
 )
 
-server = socket.gethostbyname(socket.gethostname())
+server = 'localhost'
 port = 5555
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-s.bind((server, port))
-logging.info(f'Socket binded successfully as {server, port}')
+async def handler(websocket: WebSocketServerProtocol):
+    name = await websocket.recv()
+    logging.info(f"<<< {name}")
 
+    greeting = f"Hello {name}!"
 
-s.listen()
-logging.info('Waiting for connection...')
-
-
-def new_client(conn: socket.socket):
-    reply = json.dumps({"message":"test"})
-    while True:
-        try:
-            data = json.loads(conn.recv(2048).decode())
-            conn.send(reply.encode())
-
-            # Don't log the sent and recieved to prevent log being large
-            print(f'Recieved: {data}')
-            print(f'Sending: {reply}')
-        except Exception:
-            logging.info("Unkown Error, disconecting imeidietly")
-            logging.info(traceback.format_exc())
-            break
-    
-    conn.close()
+    await websocket.send(greeting)
+    logging.info(f">>> {greeting}")
 
 
-while True:
-    conn, addr = s.accept()
+async def main():
+    async with websockets.serve(handler, server, port):
+        await asyncio.Future()
 
-    threading.Thread(target=new_client, args=[conn]).start()
+
+if __name__ == '__main__':
+    asyncio.run(main())
