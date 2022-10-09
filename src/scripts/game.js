@@ -1,3 +1,7 @@
+function syncacc() {
+  
+}
+
 function connect() {
   const messages = document.createElement("ul");
   document.body.appendChild(messages);
@@ -14,9 +18,14 @@ function connect() {
 };
 
 function sidebar_open(){
-  document.getElementById('#menubutton').style.translate=""
+  document.getElementById('sidebar').style.transform="translate(0px)"
+  document.getElementById('sidemenu-open').style.display="none"
+  document.getElementById('sidemenu-close').style.display="block"
+  console.log('---------')
 }
 
 function sidebar_close(){
-  document.getElementById('#sidemenu-open').style.translate()
+  document.getElementById('sidebar').style.transform="translate(-100px)"
+  document.getElementById("sidemenu-close").style.display="none"
+  document.getElementById("sidemenu-open").style.display="block"
 }

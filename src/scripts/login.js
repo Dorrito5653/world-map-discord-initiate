@@ -43,9 +43,9 @@ async function getLogin(){
 
 
 function register(){
-  const email = document.getElementById('#email')
-  const username = document.getElementById('#username')
-  const password = document.getElementById('#password')
+  const email = document.querySelector('#email')
+  const username = document.querySelector('#username')
+  const password = document.querySelector('#password')
   let url = `http://localhost:3000/config/${username.value}`
 
   let checkreq = new XMLHttpRequest()
@@ -70,8 +70,12 @@ function register(){
   data.append('username', `${username.value}`)
   data.append('password', `${password.value}`)
   data.append('email', `${email.value}`)
+<<<<<<< HEAD
   data.append('created_date', Date.now())
   data.append('updated_date', Date.now())
+=======
+  // data.append('created_date')
+>>>>>>> 6842403bfe3cf8c225c581253a0a6f86845414d9
 
   let postreq = new XMLHttpRequest()
   postreq.open("POST", url, true)

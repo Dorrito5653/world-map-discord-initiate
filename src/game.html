@@ -13,6 +13,9 @@
 </head>
 
 <body>
+  <div class="corner">
+    
+  </div>
   <div class="topbar">
     <div class="battle">
       <button id="battlebutton" onclick="connect()"> <img src="../tools/images/battlebutton.jpg" width="140px" height="50px"></button>
@@ -20,6 +23,9 @@
     <div id="menu-button">
       <button id="sidemenu-open" onclick="sidebar_open()">
         <img src="../tools/images/Menu.svg.png" width="50px" height="50px">
+      </button>
+      <button id="sidemenu-close" onclick="sidebar_close()">
+        <img src="../tools/images/closemenu.png" width="50px" height="50px">
       </button>
     </div>
   </div>
@@ -30,9 +36,17 @@
       </div>
     </button>
     <div class="links">
-      <i class="fa-solid fa-circle-info"></i><a href="./about.html">WIKI</a><br>
-
+      <i class="fa-solid fa-circle-info"></i><a href="./about.html">&nbspWIKI</a><br>
+      <i class="fa-brands fa-discord"></i><a href="https://discord.gg/QsZFVSUkPG">DISCORD</a>
+      <i class="fa-brands fa-github"></i><a href="https://github.com/Dorrito5653/world-map-discord-initiate">&nbspGIT</a><br>
+      <i class="fa-brands fa-youtube"></i><a href="https://www.youtube.com/channel/UCnnJkkG4oR8asiJy4t5fKGg">&nbspUTUBE</a><br>
+      <i class="fa-brands fa-twitter"></i><a href="https://www.youtube.com/channel/UCnnJkkG4oR8asiJy4t5fKGg">&nbspTWIT</a><br>
     </div>
+    <button id="syncacc" onclick="syncacc()">
+      <div class="btn-sync">
+        <img src="">
+      </div>
+    </button>
   </div>
   <div class="bottombar">
     <!-- <div id="logo">

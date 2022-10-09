@@ -51,12 +51,29 @@ body {
     position: absolute;
     top: 0;
     right: 0;
+    transition: 0.5s ease;
     /* border-left: 4px solid grey */
 }
 
 
 #sidemenu-open:hover {
     cursor: pointer;
+    padding: 4px;
+}
+
+#sidemenu-close {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.5s ease;
+    /* border-left: 4px solid grey */
+}
+
+
+#sidemenu-close:hover {
+    cursor: pointer;
+    padding: 4px;
 }
 
 .sidebar {
@@ -65,12 +82,12 @@ body {
     text-align: center;
     bottom: 0;
     left: 0;
-    line-height: 60px;
+    line-height: 55px;
     height: 97%;
-    width: 50px;
+    width: 60px;
     background-color: navy;
-    transform: translate(-100%);
-    transition: 0.5ms;
+    transform: translate(-100px);
+    transition: 0.5ms ease;
 }
 
 .sidebar .links {
@@ -78,5 +95,21 @@ body {
     top: 10vh;
     left: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
 }
+/* .battle{
+    text-align: right;
+    vertical-align: top;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+
+.battle:hover{
+    background: cyan;
+    transition: 0.5s ease;
+    cursor: pointer;
+} */

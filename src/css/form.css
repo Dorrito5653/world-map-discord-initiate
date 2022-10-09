@@ -16,13 +16,6 @@ section {
     color: black;
 }
 
-.h1 {
-    font-size: 36px;
-    text-align: center;
-    background: none;
-    color: white;
-}
-
 section{
     text-align: center;
     line-height: 75px;
@@ -67,13 +60,14 @@ body p {
 }
 
 .input {
-    border: solid 1.5px #9e9e9e;
+    border: solid 1.5px;
     border-radius: 1rem;
     background: none;
     padding: 1rem;
     font-size: 1rem;
     line-height: 1.5;
     color: white;
+    background-color: initial;
 }
 
 .input-label {
@@ -83,10 +77,9 @@ body p {
     font-style: normal;
     font-size: medium;
     pointer-events: none;
-    color: white;
     transition: 150ms ease;
     text-align: left;
-    transform: translateX(-90px);
+    transform: translateX(-90px) translateY(80%) scale(1.1);
 }
 
 .input:focus {
@@ -102,6 +95,22 @@ body p {
     display: none;
 }
 
+.input:valid {
+    border-color: cyan;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+}
+
+.input:invalid {
+    border-color: red;
+}
+
 .submit {
     background-color: black;
     color: white;
@@ -112,8 +121,7 @@ body p {
     margin-top: 30px;
 }
 
-.submit:hover{
-    border: red;
+.submit:hover {
     background: cyan;
     transition: 0.5s ease;
 }
