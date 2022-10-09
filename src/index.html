@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2e99b0edee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="./scripts/index.js"></script>
     <link rel="icon" href="../tools/images/favicon.ico">
     <title>World Map Warfare</title>
 </head>
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <div class="sidebar">
+    <button class="sidebar-openbtn" onclick="openNav()">&#9776;</button>
+    <div id="sidebar">
+        <button class="closebtn" onclick="closeNav()">&times;</button>
+        <br>
         <a class="skip-link" href="#options">Skip to Login/Register</a>
         <section id="links">
         <div class="sidebar-logo">
