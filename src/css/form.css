@@ -112,8 +112,7 @@ body p {
     margin-top: 30px;
 }
 
-.submit:hover{
-    border: red;
+.submit:hover {
     background: cyan;
     transition: 0.5s ease;
 }
