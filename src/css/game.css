@@ -20,4 +20,15 @@
     text-align: right;
     vertical-align: top;
     font-size: 30px;
+    background-color: black;
+    color: white;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+
+.battle:hover{
+    background: cyan;
+    transition: 0.5s ease;
+    cursor: pointer;
 }
