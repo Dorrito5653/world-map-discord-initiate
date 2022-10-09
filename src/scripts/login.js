@@ -1,33 +1,46 @@
 async function getLogin(){
-  let usernameElement = document.querySelector('#username')
-  let passwordElement = document.querySelector('#password')
-  // window.open(
-  //   `https://dorrito5653.github.io/world-map-discord-initiate/src/index.html`,
-  //   '_blank'
-  // )
-  // console.log('------')
-  if (usernameElement.value == '' | passwordElement.value == '') {
+  let username = document.querySelector('#username').value;
+  let password = document.querySelector('#password').value;
+  if (username == '' | password == '') {
     alert('Error, no username/password given');
     return;
   }
-  const url = `http://localhost:3000/config/${usernameElement.value}`
-  try {
-    const request = new XMLHttpRequest()
-    request.open("GET", url, true);
-    let jsonResponse;
-    request.send()
-    request.onload = function(){
-      jsonResponse = request.response
-      let val = JSON.parse(jsonResponse)
-      if (val[0].password != passwordElement.value) return alert("Wrong username or password")
-      alert(jsonResponse)
-      window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html','_self').close()
-      // let newwindow = window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html', "_blank")
-    };
-  } catch(err){
-    alert(err)
+  const url = `http://localhost:3000/config/${username}`
+  const request = new XMLHttpRequest()
+  request.open("GET", url, true);
+  request.send()
+  let jsonResponse;
+  let finalres;
+  request.onload = function(){
+    jsonResponse = `${request.response}`;
+    let parsedResponse = JSON.parse(jsonResponse)
+    finalres = parsedResponse; 
+    if (parsedResponse[0].password != password){
+      return alert("Incorrect username or password.")
+    }
+    alert(jsonResponse)
   }
+
+  // const val = function(){define([
+  //     "require",
+  //     '../../node_modules/bcryptjs/dist/bcrypt.js'
+  //   ], function(require) {
+  //     alert('------')
+  //     var bcrypt = require('../../node_modules/bcryptjs/dist/bcrypt')
+  //     bcrypt.compare(password, finalres[0].password, function(err, res){
+  //       if (err) console.error(err)
+  //       alert(res)
+  //       if (!res) {
+  //         return alert("Wrong username or password")
+  //       }
+  //     })
+  //   })
+  // };
+  // val()
+ 
+  //window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html','_self').close()
 }
+
 
 function register(){
   const email = document.getElementById('#email')
@@ -43,26 +56,28 @@ function register(){
       return alert("That username already exists. Please pick a different one")
     }
   }
-
-  if (password.value.length < 8 || password.value.length > 60) return alert("Length of password cannot be less than 8 characters or more than 60 characters.")
-  if (password.value){
-
+  const passRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+  if (passRegex.test(password.value)){
+    return alert("Invalid Password")
   }
-  const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (!email.value.match(regex)){
-    return alert("Invalid Email")
+
+  const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (mailformat.test(username.value) == false){
+    return alert("Invalid Email Address.")
   }
 
   var data = new FormData();
   data.append('username', `${username.value}`)
   data.append('password', `${password.value}`)
   data.append('email', `${email.value}`)
-  data.append('created_date')
+  data.append('created_date', Date.now())
+  data.append('updated_date', Date.now())
 
   let postreq = new XMLHttpRequest()
   postreq.open("POST", url, true)
   postreq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   postreq.onload = function(){
-
+    console.log(this.responseText)
   }
+  postreq.send(data)
 }

@@ -7,22 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
     <link rel="icon" href="../tools/images/favicon.ico">
+    <script src="https://kit.fontawesome.com/2e99b0edee.js" crossorigin="anonymous"></script>
     <title>WMB LAUNCHED</title>
 </head>
 
 <body>
-  <div class="menuscreen">
-    <div class="topbar">
-      <div class="sidelogo">
-        <div class="logo">
-          <img src="../tools/images/favicon.png">
-        </div>
-        <h1>WMB EXECUTION</h1>
-      </div>
-      <div class="battlebutton">
-        <button id="battle">Battle</button>
-      </div>
+  <div class="topbar">
+    <div class="battle">
+      <button id="battlebutton">
+        <img class="img-battle" src="../tools/images/battlebutton.jpg" width="150px" height="50px">
+      </button>
     </div>
+    <div id="menu-button">
+      <button id="sidemenu-open">
+        <img src="../tools/images/Menu.svg.png" width="40px" height="40px">
+      </button>
+    </div>
+  </div>
+  <div class="sidebar">
+    <button id="readme" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
+      <div class="logo">
+        <img src="../tools/images/logo.png" class="logo-img" width="60px" height="50px">
+      </div>
+    </button>
+    <div class="links">
+      <i class="fa-solid fa-circle-info"></i><a href="./about.html">WIKI</a><br>
+
+    </div>
+  </div>
+  <div class="bottombar">
+    <!-- <div id="logo">
+      <img src="../tools/images/favicon.png" width="100px" height="40px">
+    </div> -->
   </div>
 </body>
 

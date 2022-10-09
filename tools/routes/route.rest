@@ -6,7 +6,7 @@ GET http://localhost:3000/config/Egg
 
 ###
 
-//Do not add ',' after vip please 
+//Do not add ',' at the end
 POST http://localhost:3000/config
 Content-Type: application/json
 
