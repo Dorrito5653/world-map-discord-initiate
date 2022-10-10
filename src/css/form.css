@@ -52,6 +52,7 @@ body p {
 
 .bottom a:hover {
     background-color: #579457;
+    cursor: pointer;
 }
 
 .input-group {
@@ -124,4 +125,5 @@ input:-webkit-autofill:active {
 .submit:hover {
     background: cyan;
     transition: 0.5s ease;
+    cursor: pointer;
 }
