@@ -3,6 +3,7 @@ function syncacc() {
 }
 
 function connect() {
+  // server.py must be running for this to work
   const messages = document.createElement("ul");
   document.body.appendChild(messages);
 
