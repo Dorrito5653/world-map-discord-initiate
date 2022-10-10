@@ -11,9 +11,14 @@ body {
     text-align: center;
     background-color: navy;
 }
+
 #battlebutton {
+    position: absolute;
+    top: 0;
     margin: 0;
     padding: 0;
+    left: 45%;
+    right: auto;
     transition: 0.5s;
 }
 
@@ -21,6 +26,24 @@ body {
     cursor: pointer;
     padding: 5px;
     /* background-color: black; */
+}
+
+#syncacc {
+    position: absolute;
+    bottom: 20px;
+    left: 12.5px;
+    padding: 2px 4px;
+    transition: 0.5s ease;
+}
+
+.btn-sync {
+    border: 2px solid grey;
+    transition: 0.5s;
+}
+
+.btn-sync:hover {
+    cursor: pointer;
+    padding: 2px;
 }
 
 .img-battle {
@@ -83,7 +106,7 @@ body {
     bottom: 0;
     left: 0;
     line-height: 55px;
-    height: 97%;
+    height: 89%;
     width: 60px;
     background-color: navy;
     transform: translate(-100px);
@@ -96,6 +119,10 @@ body {
     left: 0;
     margin: 0;
     font-size: 12px;
+}
+
+.sidebar .links a {
+    color: white;
 }
 /* .battle{
     text-align: right;
