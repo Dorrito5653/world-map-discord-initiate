@@ -6,7 +6,7 @@ const loginSchema = new mongoose.Schema({
     password: mongoose.Schema.Types.String,
     VIP: mongoose.Schema.Types.Boolean,
     created_date: mongoose.Schema.Types.Date,
-    updated_date: mongoose.Schema.Types.Date
+    updated_date: mongoose.Schema.Types.Date,
 })
 
 loginSchema.pre('save', async function(next){

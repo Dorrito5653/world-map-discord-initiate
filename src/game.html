@@ -7,21 +7,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
     <link rel="icon" href="../tools/images/favicon.ico">
+    <script src="https://kit.fontawesome.com/2e99b0edee.js" crossorigin="anonymous"></script>
     <script src="./scripts/game.js"></script>
     <title>WMB LAUNCHED</title>
 </head>
 
 <body>
-  <div class="menuscreen">
-    <div class="topbar">
-      <div class="sidelogo">
-        <div class="logo">
-          <img src="../tools/images/favicon.png">
-        </div>
-        <h1>WMB EXECUTION</h1>
+  <div class="corner">
+    
+  </div>
+  <div class="topbar">
+    <button id="readme" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
+      <div class="logo">
+        <img src="../tools/images/logo.png" class="logo-img" width="60px" height="50px">
       </div>
-      <br>
-      <button class="battle" onclick="connect()">Battle</button>
+    </button>
+    <div class="battle">
+      <button id="battlebutton" onclick="connect()"> <img src="../tools/images/battlebutton.jpg" width="140px" height="50px"></button>
+    </div>
+    <div id="menu-button">
+      <button id="sidemenu-open" onclick="sidebar_open()">
+        <img src="../tools/images/Menu.svg.png" width="50px" height="50px">
+      </button>
+      <button id="sidemenu-close" onclick="sidebar_close()">
+        <img src="../tools/images/closemenu.png" width="50px" height="50px">
+      </button>
+    </div>
+  </div>
+  <div class="sidebar" id="sidebar">
+    <div class="links">
+      <i class="fa-solid fa-circle-info"></i><a href="./about.html">&nbspWIKI</a><br>
+      <i class="fa-brands fa-discord"></i><a href="https://discord.gg/QsZFVSUkPG">DISCORD</a>
+      <i class="fa-brands fa-github"></i><a href="https://github.com/Dorrito5653/world-map-discord-initiate">&nbspGIT</a><br>
+      <i class="fa-brands fa-youtube"></i><a href="https://www.youtube.com/channel/UCnnJkkG4oR8asiJy4t5fKGg">&nbspUTUBE</a><br>
+      <i class="fa-brands fa-twitter"></i><a href="https://www.youtube.com/channel/UCnnJkkG4oR8asiJy4t5fKGg">&nbspTWIT</a><br>
+    </div>
+    <button id="syncacc" onclick="syncacc()">
+      <div class="btn-sync">
+        <img src="../tools/images/sign-sync-icon.png.opdownload" width="40px" height="40px">
+      </div>
+    </button>
+  </div>
+  <div class="bottombar">
+    <div id="menu-profile">
+
+    </div>
+    <div id="email">
+
+    </div>
+    <div id="menu-friends">
+
+    </div>
+    <div id="sel-type">
+      
     </div>
   </div>
 </body>

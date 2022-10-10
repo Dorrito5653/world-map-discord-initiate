@@ -2,6 +2,7 @@
 Will be the socket server for multiplayer games
 """
 from __future__ import annotations
+from datetime import datetime
 from typing import TYPE_CHECKING
 import asyncio
 import websockets
@@ -19,7 +20,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] (%(funcName)s:%(lineno)d): %(message)s",
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler(f"./logs/log.log", encoding='utf-8')
+        logging.FileHandler(f"./logs/{datetime.now().strftime('%H%M%S')}", encoding='utf-8')
     ]
 )
 

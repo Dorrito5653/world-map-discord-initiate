@@ -1,22 +1,130 @@
-.menuscreen{
-    background: url("../../tools/images/background.jpg") no-repeat;
-    background-size: cover;
+body {
+    background: black;
 }
 
-.sidelogo{
-    display: inline-block;
-    vertical-align: top;
-}
-
-.topbar{
+.topbar {
     position: absolute;
     top: 0;
     left: 0;
-    background: black;
-    border-bottom: 5px solid #002F63;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    background-color: navy;
 }
 
-.battle{
+#battlebutton {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    left: 45%;
+    right: auto;
+    transition: 0.5s;
+}
+
+#battlebutton:hover {
+    cursor: pointer;
+    padding: 5px;
+    /* background-color: black; */
+}
+
+#syncacc {
+    position: absolute;
+    bottom: 20px;
+    left: 12.5px;
+    padding: 2px 4px;
+    transition: 0.5s ease;
+}
+
+.btn-sync {
+    border: 2px solid grey;
+    transition: 0.5s;
+}
+
+.btn-sync:hover {
+    cursor: pointer;
+    padding: 2px;
+}
+
+.img-battle {
+    position: relative;
+    top: -2px;
+}
+
+.logo {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 4px;
+    border-right: 3px solid grey;
+    border-bottom: 3px solid grey;
+    transition: 0.5s;
+}
+
+.logo:hover {
+    cursor: pointer;
+    background: cyan;
+}
+
+#readme {
+    background: transparent;
+}
+
+#sidemenu-open {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.5s ease;
+    /* border-left: 4px solid grey */
+}
+
+
+#sidemenu-open:hover {
+    cursor: pointer;
+    padding: 4px;
+}
+
+#sidemenu-close {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.5s ease;
+    /* border-left: 4px solid grey */
+}
+
+
+#sidemenu-close:hover {
+    cursor: pointer;
+    padding: 4px;
+}
+
+.sidebar {
+    position: absolute;
+    padding: 8px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    line-height: 55px;
+    height: 89%;
+    width: 60px;
+    background-color: navy;
+    transform: translate(-100px);
+    transition: 0.5ms ease;
+}
+
+.sidebar .links {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+.sidebar .links a {
+    color: white;
+}
+/* .battle{
     text-align: right;
     vertical-align: top;
     font-size: 30px;
@@ -31,4 +139,4 @@
     background: cyan;
     transition: 0.5s ease;
     cursor: pointer;
-}
+} */
