@@ -43,6 +43,7 @@ _military_info: TypeAlias = Literal[
     'machine guns'
 ]
 
+# same as _military_info but has "population" in it
 _power_info: TypeAlias = Literal[
     'tanks',
     'artilary',
