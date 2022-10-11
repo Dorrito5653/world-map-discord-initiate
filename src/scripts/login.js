@@ -1,24 +1,22 @@
-class loginWithGoogle{
-  constructor(){
-    this.onSuccess = function(googleUser){
-      console.log('Logged in as:' + googleUser.getBasicProfile().getName());
-    }
-    this.onFaliure = function(error){
-      console.log(error)
-    }
-    this.renderButton = function(){
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtile': true,
-        'theme': 'dark',
-        'onsuccess': this.onSuccess,
-        'onfailure': this.onFaliure
-      });
-    }
+
+  function onSuccess(googleUser){
+    console.log('Logged in as:' + googleUser.getBasicProfile().getName());
   }
-}
+  function onFaliure(error){
+      console.log(error)
+  }
+  function renderButton(){
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtile': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFaliure
+    });
+  }
+
 
 async function getLogin(){
   let username = document.querySelector('#username').value;
