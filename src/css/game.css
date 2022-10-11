@@ -140,3 +140,37 @@ body {
     transition: 0.5s ease;
     cursor: pointer;
 } */
+
+#map {
+    height: 600px;
+    cursor: move;
+    position: relative;
+}
+
+#container {
+    top: 60px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.button {
+    position: absolute;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    font-size: larger;
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-width: 100%;
+}
+
+#zoomin {
+    top: 50%;
+}
+
+#zoomout {
+    top: 40%;
+}
