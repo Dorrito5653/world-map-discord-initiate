@@ -20,7 +20,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] (%(funcName)s:%(lineno)d): %(message)s",
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler(f"./logs/{datetime.now().strftime('%H%M%S')}.log", encoding='utf-8')
+        logging.FileHandler(f"./logs/{datetime.now().strftime('%H-%M-%S')}.log", encoding='utf-8')
     ]
 )
 
