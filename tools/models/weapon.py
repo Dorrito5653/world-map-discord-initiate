@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING
 from dataclasses import dataclass
 from enum import IntEnum
 
