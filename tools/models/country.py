@@ -162,3 +162,8 @@ class Country:
     def population(self):
         """The population of this country"""
         return sum(c.population for c in self.cities)
+    
+    @property
+    def total_power(self):
+        """The total power of this country"""
+        return sum(self.power_info.values())
