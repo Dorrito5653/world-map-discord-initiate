@@ -150,6 +150,8 @@ body {
 #container {
     top: 60px;
     height: 600px;
+    left: 60px;
+    width: 90%;
     overflow: hidden;
     position: relative;
 }
