@@ -13,3 +13,4 @@ class Terrain:
     jungle: bool = False
     forest: bool = False
     city: bool = False
+    grass_land: bool = False
