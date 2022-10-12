@@ -28,20 +28,20 @@ body {
     /* background-color: black; */
 }
 
-#syncacc {
+#btn-sidebar {
     position: absolute;
     bottom: 20px;
-    left: 12.5px;
+    left: 0;
     padding: 2px 4px;
     transition: 0.5s ease;
 }
 
-.btn-sync {
+#btn-sidebar button {
     border: 2px solid grey;
     transition: 0.5s;
 }
 
-.btn-sync:hover {
+#btn-sidebar button:hover {
     cursor: pointer;
     padding: 2px;
 }

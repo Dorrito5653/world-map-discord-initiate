@@ -1,3 +1,23 @@
+
+  function onSuccess(googleUser){
+    console.log('Logged in as:' + googleUser.getBasicProfile().getName());
+  }
+  function onFaliure(error){
+      console.log(error)
+  }
+  function renderButton(){
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtile': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFaliure
+    });
+  }
+
+
 async function getLogin(){
   let username = document.querySelector('#username').value;
   let password = document.querySelector('#password').value;
@@ -72,6 +92,7 @@ function register(){
   data.append('email', `${email.value}`)
   data.append('created_date', Date.now())
   data.append('updated_date', Date.now())
+  // data.append('created_date')
 
   let postreq = new XMLHttpRequest()
   postreq.open("POST", url, true)
