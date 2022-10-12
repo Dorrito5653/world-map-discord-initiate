@@ -107,7 +107,6 @@ class Country:
         landlocked: bool = False,
         is_island: bool = True,
         ships: str = '0',
-        robots: str = '0',
         flag: str | None = None, # a url pointing to an image of the flag
         cannons: str = '0',
         vehicles: str = '0',
@@ -138,7 +137,6 @@ class Country:
             'nukes': string_to_int(nukes),
             'bombs': string_to_int(bombs),
             'ships': string_to_int(ships),
-            'robots': string_to_int(robots),
             'cannons': string_to_int(cannons),
             'armoured vehicles': string_to_int(vehicles),
             'aircraft carriers': string_to_int(aircraft_carriers),
@@ -168,7 +166,6 @@ class Country:
             'submarines':             self.military_info['submarines'] * 12 if not landlocked else 0, # Submarines are useless for landlocked nations
             'aircraft carriers':      self.military_info['aircraft carriers'] * 100 if not landlocked else 0, # Aircraft Carriers are useless for landlocked nations
             'destroyers':             self.military_info['destroyers'] * 15 if not landlocked else 0, # Destroyers are useless for landlocked nations
-            'robots':                 self.military_info['robots'] // 10,
             'bombs':                  self.military_info['bombs'] // 2
         }
 
