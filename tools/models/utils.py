@@ -1,4 +1,15 @@
 """Utility functions"""
+from typing import Literal, overload
+
+
+@overload
+def string_to_int(string: Literal['inf']) -> float:
+    ...
+
+
+@overload
+def string_to_int(string: str) -> int:
+    ...
 
 
 def string_to_int(string: str):
