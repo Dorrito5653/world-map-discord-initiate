@@ -10,10 +10,15 @@ if TYPE_CHECKING:
 @dataclass(kw_only=True, order=False)
 class CountryProvince:
     """Represents a province of a country"""
+    name: str
     land_area: int # in kilometers squared
-    population: int
-    jobs: int
-    economy: int
     cities: list[City]
     capitol: City
     county: Country
+
+    @property
+    def population(self):
+        return sum(c.population for c in self.cities)
+    
+    def economy(self):
+        return sum(c.economy for c in self.cities)

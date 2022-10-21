@@ -11,11 +11,10 @@ if TYPE_CHECKING:
 @dataclass(kw_only=True, order=False)
 class City:
     """Represents a city"""
-    land_area: int # in kilometers squared
+    name: str
     population: int
     terrain: Terrain
-    jobs: int
-    economy: int
+    economy: int # amount of money this city gives to the government
     province: CountryProvince
     country: Country
     
