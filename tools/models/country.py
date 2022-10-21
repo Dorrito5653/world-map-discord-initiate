@@ -25,25 +25,6 @@ countries_obj: TypeAlias = Literal[
     'Greenistan'
 ]
 
-_military_info: TypeAlias = Literal[
-    'tanks',
-    'artilary',
-    'planes',
-    'military population',
-    'military specialty',
-    'nukes',
-    'bombs',
-    'ships',
-    'robots',
-    'cannons',
-    'armoured vehicles',
-    'aircraft carriers',
-    'submarines',
-    'destroyers',
-    'missiles',
-    'machine guns'
-]
-
 # same as _military_info but has "population" in it
 _power_info: TypeAlias = Literal[
     'tanks',
@@ -109,23 +90,25 @@ class Country:
         self.provinces = provinces
         self.capitol = capitol
         self.google_doc = google_doc
-        self.military_info: dict[_military_info, int] = {
-            'tanks': string_to_int(tanks),
-            'artilary': string_to_int(artilary),
-            'planes': string_to_int(planes),
-            'military population': string_to_int(military_pop),
-            'military specialty': military_specialty,
-            'nukes': string_to_int(nukes),
-            'bombs': string_to_int(bombs),
-            'ships': string_to_int(ships),
-            'cannons': string_to_int(cannons),
-            'armoured vehicles': string_to_int(vehicles),
-            'aircraft carriers': string_to_int(aircraft_carriers),
-            'submarines': string_to_int(submarines),
-            'destroyers': string_to_int(destroyers),
-            'missiles': string_to_int(missiles),
-            'machine guns': string_to_int(machine_guns)
-        }
+
+        # Military
+        self.tanks = string_to_int(tanks)
+        self.artilary = string_to_int(artilary)
+        self.planes = string_to_int(planes)
+        self.military_population = string_to_int(military_pop)
+        self.military_specialty = military_specialty
+        self.nukes = string_to_int(nukes)
+        self.bombs = string_to_int(bombs)
+        self.ships = string_to_int(ships)
+        self.cannons = string_to_int(cannons)
+        self.armoured_vehicles = string_to_int(vehicles)
+        self.aircraft_carriers = string_to_int(aircraft_carriers)
+        self.submarines = string_to_int(submarines)
+        self.destroyers = string_to_int(destroyers)
+        self.missiles = string_to_int(missiles)
+        self.machine_guns = string_to_int(machine_guns)
+
+
         self.scientists = string_to_int(scientists)
         self.miners = string_to_int(miners)
         self.landlocked = landlocked
@@ -134,28 +117,6 @@ class Country:
         if alliances is None:
             alliances = []
         self.alliances = alliances
-
-        self.power_info: dict[_power_info, int] = {
-            'population':             self.population // 500000,
-            'military population':    self.military_info['military population'] // 1000,
-            'ship':                   self.military_info['ships'] * 2 if not landlocked else 0, # Ships are useless for landlocked nations
-            'plane':                  self.military_info['planes'] // 5,
-            'nukes':                  self.military_info['nukes'],
-            'tank':                   self.military_info['tanks'] // 5,
-            'cannon':                 self.military_info['cannons'] // 20,
-            'missile':                self.military_info['missiles'] // 2,
-            'submarines':             self.military_info['submarines'] * 12 if not landlocked else 0, # Submarines are useless for landlocked nations
-            'aircraft carriers':      self.military_info['aircraft carriers'] * 100 if not landlocked else 0, # Aircraft Carriers are useless for landlocked nations
-            'destroyers':             self.military_info['destroyers'] * 15 if not landlocked else 0, # Destroyers are useless for landlocked nations
-            'bombs':                  self.military_info['bombs'] // 2
-        }
-
-        if landlocked:
-            self.power_info['landlocked'] = sum(self.power_info.values()) // -10
-
-        self.power_info = {k: v for k, v in self.power_info.items() if v != 0}
-
-        self.power = sum(self.power_info.values())
         self.flag = flag
     
     @property
@@ -167,3 +128,24 @@ class Country:
     def total_power(self):
         """The total power of this country"""
         return sum(self.power_info.values())
+    
+    @property
+    def power_info(self) -> dict[_power_info, int]:
+        pwr = {
+            'population':             self.population // 500000,
+            'military population':    self.military_population // 1000,
+            'ship':                   self.ships * 2 if not self.landlocked else 0, # Ships are useless for landlocked nations
+            'plane':                  self.planes // 5,
+            'nukes':                  self.nukes,
+            'tank':                   self.tanks // 5,
+            'cannon':                 self.cannons // 20,
+            'missile':                self.missiles // 2,
+            'submarines':             self.submarines * 12 if not self.landlocked else 0, # Submarines are useless for landlocked nations
+            'aircraft carriers':      self.aircraft_carriers * 100 if not self.landlocked else 0, # Aircraft Carriers are useless for landlocked nations
+            'destroyers':             self.destroyers * 15 if not self.landlocked else 0, # Destroyers are useless for landlocked nations
+            'bombs':                  self.bombs // 2
+        }
+        if self.landlocked:
+            pwr['landlocked'] = sum(pwr.values()) // -10
+
+        return {k: v for k, v in pwr.items() if v != 0}
