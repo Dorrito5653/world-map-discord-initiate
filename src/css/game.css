@@ -176,3 +176,24 @@ body {
 #zoomout {
     top: 40%;
 }
+
+
+.copy-link {
+    display: none;
+    background-color: rgb(63, 215, 99);
+    border: 1px solid darkgreen;
+    position: absolute;
+    left: 25%;
+    font-size: 1em;
+    top: 10%;
+}
+
+.copy-link:hover {
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+#spectate-link {
+    top: 50%;
+    left: 23.3%
+}

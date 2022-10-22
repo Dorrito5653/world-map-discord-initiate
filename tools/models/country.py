@@ -1,13 +1,14 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 from typing import TypeAlias, Literal
-from utils import string_to_int
+from .utils import string_to_int
 
 if TYPE_CHECKING:
     from .terrain import Terrain
     from .country_alliance import CountryAlliance
     from .city import City
     from .country_province import CountryProvince
+    from websockets.legacy.server import WebSocketServerProtocol
 
 countries_obj: TypeAlias = Literal[
     'Nukeistan',
@@ -22,7 +23,8 @@ countries_obj: TypeAlias = Literal[
     'Pingistan',
     'Nukeistan',
     'Prussia',
-    'Greenistan'
+    'Greenistan',
+    'USSR'
 ]
 
 # same as _military_info but has "population" in it
@@ -52,7 +54,7 @@ class Country:
         self,
         *,
         name: countries_obj,
-        leader: str,
+        leader: WebSocketServerProtocol | None = None, # Leader is None if it is an AI
         cities: list[City],
         land_area: int, # in kilometers squared
         provinces: list[CountryProvince],
@@ -84,7 +86,7 @@ class Country:
     ) -> None:
         self.main_terrain = main_terrain
         self.name = name
-        self.leader: str = leader
+        self.leader = leader
         self.cities = cities
         self.land_area = land_area
         self.provinces = provinces
