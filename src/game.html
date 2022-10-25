@@ -19,6 +19,8 @@
         <img src="../tools/images/logo.png" class="logo-img" width="60px" height="50px">
       </div>
     </button>
+    <button class="copy-link" id="spectate-link">Copy Spectate Link</button>
+    <button class="copy-link" id="join-link">Copy Join Link</button>
     <div class="battle">
       <button id="battlebutton" onclick="connect()">
         <img src="../tools/images/battlebutton.jpg" width="140px" height="50px">
@@ -52,10 +54,10 @@
     <div id="btn-sidebar">
       <button id="syncacc" onclick="syncacc()">
         <div class="btn-sync">
-          <img src="../tools/images/sign-sync-icon.png.opdownload" width="40px" height="40px">
+          <img src="../tools/images/sign-sync-icon.png" width="40px" height="40px">
         </div>
       </button>
-      <button id="homepage" onclick="window.open('https://dorrito5653.github.io/src/index.html')">
+      <button id="homepage" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/')">
         <div class="btn-home">
           <img src="../tools/images/homepage.png" width="40px" height="40px">
         </div>
@@ -76,6 +78,12 @@
       
     </div>
   </div>
+
+  <div id="container">
+    <img ondragstart="return false" id="map" src="../tools/images/map.png"/>
+  </div>
+  <input type="button" id="zoomout" class="button" value="&minus;">
+  <input type="button" id="zoomin" class="button" value="&plus;">
 </body>
 
 </html>

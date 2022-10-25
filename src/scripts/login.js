@@ -81,11 +81,6 @@ function register(){
     return alert("Invalid Password")
   }
 
-  const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (mailformat.test(username.value) == false){
-    return alert("Invalid Email Address.")
-  }
-
   var data = new FormData();
   data.append('username', `${username.value}`)
   data.append('password', `${password.value}`)
