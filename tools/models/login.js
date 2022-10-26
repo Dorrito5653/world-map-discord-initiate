@@ -8,12 +8,12 @@ const loginSchema = new mongoose.Schema({
     created_date: mongoose.Schema.Types.Date,
     updated_date: mongoose.Schema.Types.Date,
 })
-
-loginSchema.pre('save', async function(next){
-    if (!this.isModified('password')){
-        next()
-    }
-    this.password = await bcrypt.hash(this.password, 10)
-})
+//Hashing: We do this later
+// loginSchema.pre('save', async function(next){
+//     if (!this.isModified('password')){
+//         next()
+//     }
+//     this.password = await bcrypt.hash(this.password, 10)
+// })
 
 module.exports = mongoose.model('accounts', loginSchema)
