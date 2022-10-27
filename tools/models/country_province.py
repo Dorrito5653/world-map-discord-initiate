@@ -16,9 +16,13 @@ class CountryProvince:
     capitol: City
     county: Country
 
+    id: int # store an ID for each province so that there can be multiple
+    # provinces with the same name across different countries
+
     @property
     def population(self):
         return sum(c.population for c in self.cities)
     
+    @property
     def economy(self):
         return sum(c.economy for c in self.cities)
