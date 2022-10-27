@@ -10,7 +10,7 @@ import websockets
 import logging
 import os
 import secrets
-from wmb_game import WMBGame
+from tools.models.wmb_game import WMBGame, STARTING_TILES, num_to_tile
 
 if TYPE_CHECKING:
     from websockets.legacy.server import WebSocketServerProtocol
@@ -63,7 +63,7 @@ async def create_game(ws: WebSocketServerProtocol, country: str):
 
         await ws.send(json.dumps(event))
         logging.info(f'First player started game: {id(game) = }')
-        await asyncio.Future()
+        await ws.wait_closed()
     finally:
         del JOIN[join_id]
 
