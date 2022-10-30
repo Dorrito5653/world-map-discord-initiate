@@ -62,7 +62,7 @@ async def create_game(ws: WebSocketServerProtocol, country: str):
         }
 
         await ws.send(json.dumps(event))
-        logging.info(f'First player started game: {id(game) = }')
+        logging.info(f'First player started game: {id(game)}')
         await asyncio.Future()
     finally:
         del JOIN[join_id]
@@ -107,7 +107,7 @@ async def join_game(ws: WebSocketServerProtocol, join_code: str, country: str):
     except ValueError: # Country already taken
         await error(ws, 'Country was already taken')
     else:
-        logging.info(f'Another player has joined game: {join_code = }')
+        logging.info(f'Another player has joined game: {join_code}')
 
 
 async def handler(websocket: WebSocketServerProtocol):

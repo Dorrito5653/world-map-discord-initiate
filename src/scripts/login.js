@@ -58,7 +58,7 @@ async function getLogin(){
   // };
   // val()
  
-  //window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html','_self').close()
+  window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html','_self').close()
 }
 
 
