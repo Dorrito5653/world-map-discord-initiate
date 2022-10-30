@@ -4,7 +4,7 @@ body {
     color: grey;
     font-family: Tahoma;
     text-align: center;
-    background: url("../../tools/images/wallpaper.jpg") no-repeat;
+    background: url("../../tools/images/backgrounds/wallpaper.jpg") no-repeat;
     background-size: cover;
 }
 
