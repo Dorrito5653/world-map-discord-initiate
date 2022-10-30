@@ -16,22 +16,22 @@
   <div class="topbar">
     <button id="readme" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
       <div class="logo">
-        <img src="../tools/images/logo.png" class="logo-img" width="60px" height="50px">
+        <img src="../tools/images/logos/logo.png" class="logo-img" width="60px" height="50px">
       </div>
     </button>
     <button class="copy-link" id="spectate-link">Copy Spectate Link</button>
     <button class="copy-link" id="join-link">Copy Join Link</button>
     <div class="battle">
       <button id="battlebutton" onclick="connect()">
-        <img src="../tools/images/battlebutton.jpg" width="140px" height="50px">
+        <img src="../tools/images/buttons/battlebutton.jpg" width="140px" height="50px">
       </button>
     </div>
     <div id="menu-button">
       <button id="sidemenu-open" onclick="sidebar_open()">
-        <img src="../tools/images/Menu.svg.png" width="50px" height="50px">
+        <img src="../tools/images/buttons/Menu.svg.png" width="50px" height="50px">
       </button>
       <button id="sidemenu-close" onclick="sidebar_close()">
-        <img src="../tools/images/closemenu.png" width="50px" height="50px">
+        <img src="../tools/images/buttons/closemenu.png" width="50px" height="50px">
       </button>
     </div>
   </div>
@@ -54,25 +54,32 @@
     <div id="btn-sidebar">
       <button id="syncacc" onclick="syncacc()">
         <div class="btn-sync">
-          <img src="../tools/images/sign-sync-icon.png" width="40px" height="40px">
+          <img src="../tools/images/buttons/sign-sync-icon.png" width="40px" height="40px">
         </div>
       </button>
       <button id="homepage" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/')">
         <div class="btn-home">
-          <img src="../tools/images/homepage.png" width="40px" height="40px">
+          <img src="../tools/images/buttons/homepage.png" width="40px" height="40px">
         </div>
       </button>
     </div>
   </div>
+  <div id="weapons">
+    <div class="truffle-menu" id="truffle-menu-btns">
+
+    </div>
+  </div>
   <div class="bottombar">
     <div id="menu-profile">
-
+      <button id="user-logo" onclick="">
+        <img src="../tools/images/logos/user-logo.jpg" id="sel-logo" width="30px" height="30px">
+      </button>
     </div>
     <div id="email">
-
+      
     </div>
     <div id="menu-friends">
-
+      
     </div>
     <div id="sel-type">
       
@@ -80,7 +87,7 @@
   </div>
 
   <div id="container">
-    <img ondragstart="return false" id="map" src="../tools/images/map.png"/>
+    <img ondragstart="return false" id="map" src="../tools/images/backgrounds/map.png"/>
   </div>
   <input type="button" id="zoomout" class="button" value="&minus;">
   <input type="button" id="zoomin" class="button" value="&plus;">
