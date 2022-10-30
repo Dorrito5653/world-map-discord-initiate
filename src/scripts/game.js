@@ -86,7 +86,7 @@ function connect() {
     } else {
       // Sucessful
       joinLink = `${document.URL}?join=${data.join}`
-      spectateLink = `${document.URL}?join=${data.spectate}`
+      spectateLink = `${document.URL}?spectate=${data.spectate}`
 
       let spectate = document.getElementById('spectate-link')
       let join = document.getElementById('join-link')
