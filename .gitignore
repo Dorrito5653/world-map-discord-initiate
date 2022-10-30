@@ -1,6 +1,7 @@
 # We don't need these
 node_modules/
 logs/
+.vscode/
 
 # Secrets...
 *.env
