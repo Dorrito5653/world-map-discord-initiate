@@ -42,7 +42,7 @@ let spectateLink = null
 let joinLink = null
 
 function copySpectateLink() {
-  if (spectateLink == null) {
+  if (spectateLink === null) {
     alert('You are not in a game right now! Click "To Battle" to start!')
   } else {
     copyTextToClipboard(spectateLink)
@@ -50,7 +50,7 @@ function copySpectateLink() {
 }
 
 function copyJoinLink() {
-  if (joinLink == null) {
+  if (joinLink === null) {
     alert('You are not in a game right now! Click "To Battle" to start!')
   } else {
     copyTextToClipboard(joinLink)
@@ -80,24 +80,32 @@ function connect() {
   websocket.onmessage = (ev) => {
     let data = JSON.parse(ev.data)
 
-    if (data.type == 'error') {
-      alert(`Error: ${data.message}`)
-      location.reload()
-    } else {
+    if (data.type === 'error') {
+      error(data.message)
+    } else if (joinLink === null && spectateLink === null) {
       // Sucessful
-      joinLink = `${document.URL}?join=${data.join}`
-      spectateLink = `${document.URL}?spectate=${data.spectate}`
-
-      let spectate = document.getElementById('spectate-link')
-      let join = document.getElementById('join-link')
-      
-      spectate.style.display = 'inline'      
-      join.style.display = 'inline'
-
-      spectate.addEventListener('click', copySpectateLink)
-      join.addEventListener('click', copyJoinLink)
+      drawJoinSpecatateLink(data.join, data.spectate)
     }
   }
+}
+
+function error(message) {
+  alert(`Unknown Error: ${message}`)
+  location.reload()
+}
+
+function drawJoinSpecatateLink (joinId, spectateId) {
+  joinLink = `${document.URL}?join=${joinId}`
+  spectateLink = `${document.URL}?spectate=${spectateId}`
+
+  let spectate = document.getElementById('spectate-link')
+  let join = document.getElementById('join-link')
+  
+  spectate.style.display = 'inline'      
+  join.style.display = 'inline'
+
+  spectate.addEventListener('click', copySpectateLink)
+  join.addEventListener('click', copyJoinLink)
 }
 
 function sidebar_open() {
