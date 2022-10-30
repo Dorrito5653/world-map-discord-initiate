@@ -30,7 +30,7 @@ body {
 
 #btn-sidebar {
     position: absolute;
-    bottom: 20px;
+    bottom: 10%;
     left: 0;
     padding: 2px 4px;
     transition: 0.5s ease;
@@ -107,16 +107,16 @@ body {
     left: 0;
     line-height: 55px;
     height: 89%;
-    width: 60px;
+    width: 80px;
     background-color: navy;
     transform: translate(-100px);
     transition: 0.5s ease;
+    top: 60px;
 }
 
 .sidebar .links {
-    position: absolute;
     top: 10vh;
-    left: 0;
+    text-align: center;
     margin: 0;
     font-size: 12px;
 }
@@ -147,9 +147,9 @@ body {
 }
 
 #container {
-    top: 40px;
-    height: 60vh;
-    left: 60px;
+    top: 45px;
+    height: 85vh;
+    left: 90px;
     width: 90%;
     overflow: hidden;
     position: relative;
