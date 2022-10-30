@@ -49,7 +49,10 @@ async def create_game(ws: WebSocketServerProtocol, country: str):
     spectate_id = secrets.token_urlsafe()
 
     game = WMBGame(spectate_id, join_id)
-    game.add_player(ws, country)
+    try:
+        game.add_player(ws, country)
+    except LookupError:
+        return await error(ws, 'Country does not exist')
 
     JOIN[join_id] = game
     SPECTATE[spectate_id] = game
@@ -63,7 +66,7 @@ async def create_game(ws: WebSocketServerProtocol, country: str):
 
         await ws.send(json.dumps(event))
         logging.info(f'First player started game: {id(game)}')
-        await asyncio.Future()
+        await ws.wait_closed()
     finally:
         del JOIN[join_id]
 
@@ -111,12 +114,12 @@ async def join_game(ws: WebSocketServerProtocol, join_code: str, country: str):
 
 
 async def handler(websocket: WebSocketServerProtocol):
-    async for message in websocket:
-        data: dict[str, str] = json.loads(message)
-        if data['type'] == 'create':
-            await create_game(websocket, data['country'])
-        elif data['type'] == 'join':
-            await join_game(websocket, data['joinCode'], data['country'])
+    message = await websocket.recv()
+    data: dict[str, str] = json.loads(message)
+    if data['type'] == 'create':
+        await create_game(websocket, data['country'])
+    elif data['type'] == 'join':
+        await join_game(websocket, data['joinCode'], data['country'])
 
 
 async def main():
