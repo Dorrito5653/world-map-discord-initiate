@@ -191,11 +191,11 @@ body {
     position: relative;
 }
 
-#container {
-    top: 40px;
-    height: calc(85vh - 20px);
-    left: 10vw;
-    width: 80%;
+canvas {
+    top: 70px;
+    height: calc(85vh - 8px);
+    left: 5%;
+    width: 90%;
     overflow: hidden;
     position: absolute;
 }
