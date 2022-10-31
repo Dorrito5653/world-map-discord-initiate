@@ -43,7 +43,15 @@
       </ul>
     </div>
   </div>
+  <div class="fakebar">
+    <h1>This is the World Map Warfare Game. You can open the sidebar with the menu button.</h1>
+  </div>
   <div class="sidebar" id="sidebar">
+    <button id="readme-sidebar" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
+      <div class="logo-sidebar">
+        <img src="../tools/images/logos/logo.png" class="logo-img" width="60px" height="50px">
+      </div>
+    </button>
     <div class="links">
       <i class="fa-solid fa-circle-info"></i><a href="./about.html">&nbspABOUT</a><br>
       <i class="fa-brands fa-discord"></i><a href="https://discord.gg/QsZFVSUkPG">DISCORD</a>
@@ -52,16 +60,6 @@
       <i class="fa-brands fa-twitter"></i><a href="https://www.youtube.com/channel/UCnnJkkG4oR8asiJy4t5fKGg">&nbspTWITER</a><br>
     </div>
     <div id="btn-sidebar">
-      <button id="syncacc" onclick="syncacc()">
-        <div class="btn-sync">
-          <img src="../tools/images/buttons/sign-sync-icon.png" width="40px" height="40px">
-        </div>
-      </button>
-      <button id="homepage" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/')">
-        <div class="btn-home">
-          <img src="../tools/images/buttons/homepage.png" width="40px" height="40px">
-        </div>
-      </button>
     </div>
   </div>
   <div id="weapons">
@@ -70,14 +68,31 @@
     </div>
   </div>
   <div class="bottombar">
+    <div class="leftern">
+      <button id="homepage" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/')">
+        <div class="btn-home">
+          <img src="../tools/images/buttons/homepage.png" width="40px" height="40px">
+        </div>
+      </button>
+    </div>
     <div id="menu-profile">
       <button id="user-logo" onclick="">
-        <img src="../tools/images/logos/user-logo.jpg" id="sel-logo" width="30px" height="30px">
+        <img src="../tools/images/logos/user-logo.jpg" id="sel-logo" width="40px" height="40px">
       </button>
     </div>
     <div id="email">
+      <div id="email-popup" style="background: black; display: none;">
       
+      </div>
+      <button id="email-btn" onclick="document.getElementById()">
+        <img src="../tools/images/buttons/email-btn.png" width="40px" height="40px">
+      </button>
     </div>
+    <button id="syncacc" onclick="syncacc()">
+      <div class="btn-sync">
+        <img src="../tools/images/buttons/sign-sync-icon.png" width="40px" height="40px">
+      </div>
+    </button>
     <div id="menu-friends">
       
     </div>
@@ -89,8 +104,8 @@
   <div id="container">
     <img ondragstart="return false" id="map" src="../tools/images/backgrounds/map.png"/>
   </div>
-  <input type="button" id="zoomout" class="button" value="&minus;">
-  <input type="button" id="zoomin" class="button" value="&plus;">
+  <input type="button" id="zoomout" class="button-map" value="&minus;">
+  <input type="button" id="zoomin" class="button-map" value="&plus;">
 </body>
 
 </html>

@@ -106,16 +106,34 @@ body {
     bottom: 0;
     left: 0;
     line-height: 55px;
-    height: 89%;
-    width: 60px;
+    height: 100%;
+    width: 65px;
     background-color: navy;
     transform: translate(-100px);
     transition: 0.5s ease;
 }
 
+#readme-sidebar {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    background: transparent;
+    border: none;
+}
+
+.logo-sidebar {
+    border-bottom: 3px solid grey;
+    border-right: 3px solid grey;
+    transition: 0.5s ease;
+}
+.logo-sidebar:hover {
+    cursor: pointer;
+    background-color: cyan;
+}
+
 .sidebar .links {
     position: absolute;
-    top: 10vh;
+    top: 15vh;
     left: 0;
     margin: 0;
     font-size: 12px;
@@ -125,37 +143,63 @@ body {
     color: white;
 }
 
+.fakebar {
+    position: absolute;
+    padding: 8px;
+    bottom: 0;
+    left: 0;
+    height: calc(90vh - 10px);
+    width: 55px;
+    background-color: navy;
+}
+
+.fakebar h1 {
+    font-size: large;
+    color: grey;
+}
+
 .bottombar {
     position: absolute;
     bottom: 0.5px;
     right: 0;
-    height: 6%;
-    width: 100%;
+    height: 50px;
     text-align: right;
-    background: rgb(19, 0, 88);
+    width: 100%;
+    border-spacing: 2%;
+    background: navy;
+}
+
+.leftern {
+    position: absolute;
+    left: 0;
+}
+
+.bottombar button {
+    float: right;
 }
 
 .bottombar button:hover {
     cursor: pointer;
-    background-color: red;
+    padding-left: 4px;
 }
 
+
 #map {
-    height: 60vh;
+    height: 85vh;
     cursor: move;
     position: relative;
 }
 
 #container {
     top: 40px;
-    height: 60vh;
-    left: 60px;
-    width: 90%;
+    height: calc(85vh - 20px);
+    left: 10vw;
+    width: 80%;
     overflow: hidden;
     position: relative;
 }
 
-.button {
+.button-map {
     position: absolute;
     right: 20px;
     width: 60px;
@@ -166,6 +210,12 @@ body {
     background-color: black;
     border-color: white;
     border-width: 100%;
+    transition: 0.5s
+}
+
+.button-map:hover {
+    cursor: pointer;
+    padding: 2px;
 }
 
 #zoomin {
