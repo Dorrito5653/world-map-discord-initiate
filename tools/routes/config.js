@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const Account = require('../models/login')
-
+const bcrypt = require('bcryptjs')
 
 //Get all
 router.get('/', async (req, res) => {
@@ -14,9 +14,18 @@ router.get('/', async (req, res) => {
 })
 
 //Get one
-router.get('/:username', getAcc, (req, res) => {
+router.get('/:username', getAcc, async (req, res) => {
+    const user = await Account.find(req.body.username)
+    const check = bcrypt.compare(req.body.password, user[0].password);
+    if (check == false) return 'Incorrect Password'
     res.json(res.acc)
 })
+
+//Get one by sessionId
+router.get('/:sessionId', getAcc, async (req, res) => {
+
+})
+
 //Creating one
 router.post('/', async (req, res) => {
     const acc = new Account({
@@ -24,6 +33,7 @@ router.post('/', async (req, res) => {
         password: req.body.password,
         email: req.body.email,
         VIP: req.body.VIP,
+        sessionId: req.body.sessionId,
         created_date: req.body.created_date,
         updated_date: req.body.updated_date
     })
@@ -39,7 +49,7 @@ router.patch('/:id', (req, res) => {
     
 })
 //Deleting one
-router.delete('/:id', getAcc, async (req, res) => {
+router.delete('/:username', getAcc, async (req, res) => {
     try {
         console.log(res.acc)
         await res.acc.remove()

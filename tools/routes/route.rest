@@ -22,4 +22,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/config/dorritoShah/
+DELETE http://localhost:3000/config/OI41092/
