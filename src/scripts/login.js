@@ -29,36 +29,13 @@ async function getLogin(){
   const request = new XMLHttpRequest()
   request.open("GET", url, true);
   request.send()
-  let jsonResponse;
-  let finalres;
   request.onload = function(){
-    jsonResponse = `${request.response}`;
-    let parsedResponse = JSON.parse(jsonResponse)
-    finalres = parsedResponse; 
-    if (parsedResponse[0].password != password){
-      return alert("Incorrect username or password.")
-    }
-    alert(jsonResponse)
+      let jsonResponse = `${request.response}`;
+      if (jsonResponse == 'Invalid password') return alert('Invalid password');
+      alert(jsonResponse)
+      let parsedRes = JSON.parse(jsonResponse);
+      window.open(`https://dorrito5653.github.io/world-map-discord-initiate/src/game.html?sessionId=${parsedRes[0].sessionId}`,'_self').close()
   }
-
-  // const val = function(){define([
-  //     "require",
-  //     '../../node_modules/bcryptjs/dist/bcrypt.js'
-  //   ], function(require) {
-  //     alert('------')
-  //     var bcrypt = require('../../node_modules/bcryptjs/dist/bcrypt')
-  //     bcrypt.compare(password, finalres[0].password, function(err, res){
-  //       if (err) console.error(err)
-  //       alert(res)
-  //       if (!res) {
-  //         return alert("Wrong username or password")
-  //       }
-  //     })
-  //   })
-  // };
-  // val()
- 
-  window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/game.html','_self').close()
 }
 
 
