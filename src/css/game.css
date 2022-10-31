@@ -140,19 +140,13 @@ body {
     background-color: red;
 }
 
-#map {
-    height: 60vh;
-    cursor: move;
-    position: relative;
-}
-
-#container {
-    top: 45px;
-    height: 85vh;
-    left: 90px;
-    width: 90%;
+canvas {
+    top: 70px;
+    height: 80vh;
+    left: 100px;
+    width: 85%;
     overflow: hidden;
-    position: relative;
+    position: absolute;
 }
 
 .button {
