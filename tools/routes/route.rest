@@ -11,10 +11,11 @@ POST http://localhost:3000/config
 Content-Type: application/json
 
 {
-    "username": "AtharvMoment",
+    "username": "OI41092",
     "password": "$Egg21@vsianAI",
     "email": "atharvhasALIFE@gmail.com",
     "VIP": false,
+    "sessionId": "gF-2S46fBcwaSGds_sWtG/6F2sZt52",
     "created_date": 0,
     "updated_date": 0
 }
