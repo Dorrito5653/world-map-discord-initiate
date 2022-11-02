@@ -159,12 +159,39 @@ function clear() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
+function isSquareVisible(x, y) {
+  let xPos = canvasOffsetX + x * px_size,
+      yPos = canvasOffsetY + y * px_size,
+      visible = true
+  const corners = {
+    topLeft: [xPos, yPos],
+    topRight: [xPos + px_size, yPos],
+    bottomLeft: [xPos, yPos + px_size],
+    bottomRight: [xPos + px_size, yPos + px_size]
+  }
+  for (const key in corners) {
+    if (Object.hasOwnProperty.call(corners, key)) {
+      const coors = corners[key];
+      const xCoor = coors[0],
+            yCoor = coors[1]
+      if (
+        xCoor > canvas.width || xCoor < 0 ||
+        yCoor > canvas.height || yCoor < 0
+      ) { visible = false }
+      else { return true }
+    }
+  }
+  return visible
+}
+
 function draw() {
   clear()
   for (var y = 0; y < tiles.length; y++) {
     row = tiles[y]
     for (var x = 0; x < row.length; x++) {
-      ctx.drawImage(textures[row[x]], canvasOffsetX + x * px_size, canvasOffsetY + y * px_size, px_size, px_size)
+      if (isSquareVisible(x, y)) {
+        ctx.drawImage(textures[row[x]], canvasOffsetX + x * px_size, canvasOffsetY + y * px_size, px_size, px_size)
+      }
     }
   }
 }
