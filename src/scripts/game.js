@@ -10,8 +10,7 @@ var px_size = 30,
   ],
   canvasOffsetX = 0,
   canvasOffsetY = 0,
-  mouseStartX = null,
-  mouseStartY = null,
+  mousePressed = false,
   scrolling = false,
   spectateLink = null,
   joinLink = null,
@@ -216,19 +215,17 @@ function init() {
 
   // Paning the image
   canvas.addEventListener('mousedown', (ev) => {
-    mouseStartX = ev.x
-    mouseStartY = ev.y
+    mousePressed = true
   })
   canvas.addEventListener('mousemove', (ev) => {
-    if (mouseStartX !== null && mouseStartY !== null) {
-      canvasOffsetX = (ev.x - mouseStartX) / 5
-      canvasOffsetY = (ev.y - mouseStartY) / 5
+    if (mousePressed) {
+      canvasOffsetX += ev.movementX / 5
+      canvasOffsetY += ev.movementY / 5
       draw()
     }
   })
   canvas.addEventListener('mouseup', (ev) => {
-    mouseStartX = null
-    mouseStartY = null
+    mousePressed = false
   })
 
   document.addEventListener('wheel', (ev) => {
