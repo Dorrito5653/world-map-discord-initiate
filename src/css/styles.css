@@ -157,7 +157,7 @@ body {
         @media only screen and (max-width: 565px) {
             body {
                 font-size: 15px;
-                background: url("../../tools/images/portraitbackground.jpg") no-repeat;
+                background: url("../../tools/images/backgrounds/portraitbackground.jpg") no-repeat;
                 margin: 0 auto;
                 background-size: cover;
             }
@@ -181,7 +181,7 @@ body {
             @media only screen and (max-width: 500px) {
                 body {
                     font-size: 12px;
-                    background: url("../../tools/images/portraitwallpaper.jpg") no-repeat;
+                    background: url("../../tools/images/backgrounds/portraitwallpaper.jpg") no-repeat;
                     background-size: cover;
                 }
 
@@ -225,7 +225,7 @@ body {
     }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1025px) {
     #sidebar {
         transform: none;
     }

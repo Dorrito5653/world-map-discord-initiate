@@ -39,6 +39,19 @@ function syncacc() {
 
 }
 
+function wMenu(type){
+  switch (type) {
+    case 'none': 
+      break;
+    
+    case 'tanks':
+      alert('tonk')
+
+    default: 
+      break;
+  }
+}
+
 // The following functions were taken from: https://stackoverflow.com/a/30810322/19581763
 function fallbackCopyTextToClipboard(text) {
   var textArea = document.createElement("textarea");

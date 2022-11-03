@@ -134,7 +134,7 @@ body {
 
 .sidebar .links {
     position: absolute;
-    top: 15vh;
+    top: 5vh;
     left: 0;
     margin: 0;
     font-size: 12px;
@@ -184,18 +184,57 @@ body {
     padding-left: 4px;
 }
 
+#sel-type {
+    position: absolute;
+    right: 225px;
+    vertical-align: middle;
+    height: 50px;
+    width: auto;
+    border-left: 3px solid grey;
+    border-right: 3px solid grey;
+}
+
+/* #sel-type label {
+    color: white;
+} */
+
+#sel-type #w-types {
+    height: 50px;
+    text-align: center;
+    background-color: rgb(52, 61, 82);
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    transition: 0.5s ease;
+}
+
+#sel-type #w-types:hover {
+    cursor: pointer;
+}
+
+#sel-type #w-types option {
+    font-family: sans-serif;
+    text-align: left;
+    border: 3px solid grey;
+}
+
+#sel-type #w-types .none {
+    font-style: bold;
+}
 
 #map {
-    height: 85vh;
-    cursor: move;
     position: relative;
+}
+
+#map:hover {
+    cursor: crosshair;
 }
 
 canvas {
     top: 70px;
     height: calc(85vh - 8px);
-    left: 5%;
-    width: 90%;
+    left: 10%;
+    width: 80%;
     overflow: hidden;
     position: absolute;
 }

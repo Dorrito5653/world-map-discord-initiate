@@ -47,11 +47,11 @@
     <h1>This is the World Map Warfare Game. You can open the sidebar with the menu button.</h1>
   </div>
   <div class="sidebar" id="sidebar">
-    <button id="readme-sidebar" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
+    <!-- <button id="readme-sidebar" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
       <div class="logo-sidebar">
         <img src="../tools/images/logos/logo.png" class="logo-img" width="60px" height="50px">
       </div>
-    </button>
+    </button> -->
     <div class="links">
       <i class="fa-solid fa-circle-info"></i><a href="./about.html">ABOUT</a><br>
       <i class="fa-brands fa-discord"></i><a href="https://discord.gg/QsZFVSUkPG">DISCORD</a><br>
@@ -94,10 +94,19 @@
       </div>
     </button>
     <div id="menu-friends">
-      
+      <button id="friend-menu" class="friend-menu" onclick="showfriends()">
+        <img src="../tools/images/buttons/friends.png" width="40" height="40">
+      </button>
     </div>
     <div id="sel-type">
-      
+      <!-- <label for="w-type-select">W-Type</label> -->
+      <select name="w-types" id="w-types" onchange="wMenu(this.value)">
+        <option value="none" class="none">Weapon Type</option>
+        <option value="tanks">Tonk</option>
+        <option value="artillery">Artillery</option>
+        <option value="aviation">Aviation</option>
+        <option value="missiles">Missiles</option>
+      </select>
     </div>
   </div>
 
