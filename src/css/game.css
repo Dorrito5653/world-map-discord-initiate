@@ -1,5 +1,6 @@
 body {
     background: black;
+    overflow: hidden;
 }
 
 .topbar {
@@ -10,6 +11,16 @@ body {
     height: 60px;
     text-align: center;
     background-color: navy;
+}
+
+.warning {
+    position: absolute;
+    font-size: x-small;
+    top: 70px;
+    right: 0px;
+    width: 200px;
+    background-color: red;
+    border: 5px solid grey;
 }
 
 #battlebutton {
@@ -182,6 +193,21 @@ body {
 .bottombar button:hover {
     cursor: pointer;
     padding-left: 4px;
+}
+
+#time-display {
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 65px;
+    width: 120px;
+    font-size: large;
+    background-color: rgb(52, 61, 82);
+    border-left: 3px solid grey;
+    border-right: 3px solid grey;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #sel-type {

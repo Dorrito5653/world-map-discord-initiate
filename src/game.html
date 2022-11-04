@@ -13,6 +13,9 @@
 </head>
 
 <body>
+  <div class="warning" id="loginFalse">
+    <h1>You are not logged in. Click the sync button</h1>
+  </div>
   <div class="topbar">
     <button id="readme" onclick="window.open('https://dorrito5653.github.io/world-map-discord-initiate', 'blank')">
       <div class="logo">
@@ -26,6 +29,37 @@
         <img src="../tools/images/buttons/battlebutton.jpg" width="140px" height="50px">
       </button>
     </div>
+    <div id="resources" class="resources-left">
+      <div id="bronze" class="bronze">
+
+      </div>
+      <div id="silver" class="silver">
+        
+      </div>
+      <div id="gold" class="gold">
+
+      </div>
+      <div id="aluminum" class="aluminum">
+
+      </div>
+      <div id="geostone" class="geostone">
+
+      </div>
+    </div>
+    <div id="resources" class="resources-right">
+      <div id="trophies" class="trophies">
+
+      </div>
+      <div id="wood" class="wood">
+        
+      </div>
+      <div id="seed" class="seeds">
+
+      </div>
+      <div id="copper" class="copper">
+
+      </div>
+    </div>
     <div id="menu-button">
       <button id="sidemenu-open" onclick="sidebar_open()">
         <img src="../tools/images/buttons/Menu.svg.png" width="50px" height="50px">
@@ -33,6 +67,9 @@
       <button id="sidemenu-close" onclick="sidebar_close()">
         <img src="../tools/images/buttons/closemenu.png" width="50px" height="50px">
       </button>
+    </div>
+    <div id="time-display">
+      <p>Time: <span id="date-time"></span></p>
     </div>
   </div>
   <div class="main" id="main">

@@ -213,6 +213,21 @@ function zoom(zoomincrement) {
   draw()
 }
 
+function showNotLoggedIn(){
+  
+}
+
+function showDateTime(){
+  let dt = new Date();
+  let hours = dt.getHours() > 12 ? dt.getHours() - 12 : dt.getHours()
+  let minutes = dt.getMinutes() < 10 ? "0" + dt.getMinutes() : dt.getMinutes()
+  const ampm = dt.getHours() < 12 ? "AM" : "PM"
+  let time = `${hours} ` + `${minutes}${ampm}`
+  
+  document.getElementById('date-time').innerHTML=time;
+  setTimeout(showDateTime, 1000)
+}
+
 function init() {
   canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d')
@@ -251,6 +266,11 @@ function init() {
     else { zoom(0.75) }
   })
   draw()
+  let sessionId = localStorage.getItem("sessionId")
+  if (!sessionId) showNotLoggedIn()
 }
 
 window.onload = init
+window.addEventListener("load", () => {
+  showDateTime()
+})

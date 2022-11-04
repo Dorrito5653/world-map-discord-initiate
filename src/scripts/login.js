@@ -1,22 +1,20 @@
-
-  function onSuccess(googleUser){
-    console.log('Logged in as:' + googleUser.getBasicProfile().getName());
-  }
-  function onFaliure(error){
-      console.log(error)
-  }
-  function renderButton(){
-    gapi.signin2.render('my-signin2', {
-      'scope': 'profile email',
-      'width': 240,
-      'height': 50,
-      'longtile': true,
-      'theme': 'dark',
-      'onsuccess': onSuccess,
-      'onfailure': onFaliure
-    });
-  }
-
+function onSuccess(googleUser){
+  console.log('Logged in as:' + googleUser.getBasicProfile().getName());
+}
+function onFaliure(error){
+    console.log(error)
+}
+function renderButton(){
+  gapi.signin2.render('my-signin2', {
+    'scope': 'profile email',
+    'width': 240,
+    'height': 50,
+    'longtile': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFaliure
+  });
+}
 
 async function getLogin(){
   let username = document.querySelector('#username').value;
@@ -34,7 +32,8 @@ async function getLogin(){
       if (jsonResponse == 'Invalid password') return alert('Invalid password');
       alert(jsonResponse)
       let parsedRes = JSON.parse(jsonResponse);
-      window.open(`https://dorrito5653.github.io/world-map-discord-initiate/src/game.html?sessionId=${parsedRes[0].sessionId}`,'_self').close()
+      let newWindow = window.open(`https://dorrito5653.github.io/world-map-discord-initiate/src/game.html?sessionId=${parsedRes[0].sessionId}`)
+      newWindow.localStorage.setItem("sessionId", `${parsedRes[0].sessionId}`)
   }
 }
 
