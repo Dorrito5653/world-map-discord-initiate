@@ -21,6 +21,7 @@ body {
     width: 200px;
     background-color: red;
     border: 5px solid grey;
+    display: none;
 }
 
 #battlebutton {

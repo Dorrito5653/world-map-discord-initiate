@@ -25,7 +25,7 @@ async function getLogin(){
   }
   const url = `http://localhost:3000/config/${username}`
   const request = new XMLHttpRequest()
-  request.open("GET", url, true);
+  request.open("GET", url, true, `${username}`, `${password}`);
   request.send()
   request.onload = function(){
       let jsonResponse = `${request.response}`;
@@ -36,7 +36,6 @@ async function getLogin(){
       newWindow.localStorage.setItem("sessionId", `${parsedRes[0].sessionId}`)
   }
 }
-
 
 function register(){
   const email = document.querySelector('#email')

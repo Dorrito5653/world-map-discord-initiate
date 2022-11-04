@@ -214,7 +214,8 @@ function zoom(zoomincrement) {
 }
 
 function showNotLoggedIn(){
-  
+  alert('not logged in yet')
+  document.getElementById('loginFalse').style.display="block"
 }
 
 function showDateTime(){
