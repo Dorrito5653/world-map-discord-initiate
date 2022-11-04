@@ -213,6 +213,17 @@ function zoom(zoomincrement) {
   draw()
 }
 
+
+function checkSessionId(sessionId){
+  if(!sessionId) return false;
+  const url = `https://localhost:3000/config/${sessionId}`
+  const req = new XMLHttpRequest();
+  req.open("GET", url, true)
+  req.send()
+  if (!req) return false;
+  return true;
+}
+
 function showNotLoggedIn(){
   alert('not logged in yet')
   document.getElementById('loginFalse').style.display="block"
@@ -268,7 +279,8 @@ function init() {
   })
   draw()
   let sessionId = localStorage.getItem("sessionId")
-  if (!sessionId) showNotLoggedIn()
+  const check = checkSessionId(sessionId)
+  if (!sessionId || check == false) showNotLoggedIn()
 }
 
 window.onload = init

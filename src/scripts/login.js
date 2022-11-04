@@ -19,20 +19,24 @@ function renderButton(){
 async function getLogin(){
   let username = document.querySelector('#username').value;
   let password = document.querySelector('#password').value;
-  if (username == '' | password == '') {
+  if (username == '' || password == '') {
     alert('Error, no username/password given');
     return;
   }
   const url = `http://localhost:3000/config/${username}`
   const request = new XMLHttpRequest()
-  request.open("GET", url, true, `${username}`, `${password}`);
+  request.open("GET", url, true);
+  request.setRequestHeader('password', password)
   request.send()
   request.onload = function(){
       let jsonResponse = `${request.response}`;
-      if (jsonResponse == 'Invalid password') return alert('Invalid password');
+      if (request.status == 403) {
+        alert('Incorrect Password');
+        return;
+      }
       alert(jsonResponse)
       let parsedRes = JSON.parse(jsonResponse);
-      let newWindow = window.open(`https://dorrito5653.github.io/world-map-discord-initiate/src/game.html?sessionId=${parsedRes[0].sessionId}`)
+      let newWindow = window.open(`https://dorrito5653.github.io/world-map-discord-initiate/src/game.html`)
       newWindow.localStorage.setItem("sessionId", `${parsedRes[0].sessionId}`)
   }
 }

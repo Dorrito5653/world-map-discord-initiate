@@ -16,14 +16,19 @@ router.get('/', async (req, res) => {
 //Get one
 router.get('/:username', getAcc, async (req, res) => {
     const user = await Account.find(req.body.username)
-    const check = bcrypt.compare(req.body.password, user[0].password);
-    if (check == false) return 'Incorrect Password'
+    console.log(req.headers['password'])
+    const check = await bcrypt.compare(req.headers['password'], user[0].password);
+    console.log(check)
+    if (check == false) {
+        res.status(403).json("Incorrect Password")
+        return;
+    }
     res.json(res.acc)
 })
 
 //Get one by sessionId
 router.get('/:sessionId', getAcc, async (req, res) => {
-
+    res.json(res.acc)
 })
 
 //Creating one
