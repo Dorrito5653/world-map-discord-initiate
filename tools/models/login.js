@@ -12,6 +12,8 @@ const loginSchema = new mongoose.Schema({
 })
 //Hashing: We do this later
 loginSchema.pre('save', async function(next){
+    //Check if username already exists
+    
     if (!this.isModified('password')){
         next()
     }

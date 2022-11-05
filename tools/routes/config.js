@@ -6,6 +6,10 @@ const bcrypt = require('bcryptjs')
 //Get all
 router.get('/', async (req, res) => {
     try {
+    if (req.headers['sessionId']) {
+        const accBySessionId = await Account.find({ sessionId: req.headers['sessionId'] });
+        res.json(accBySessionId)
+    }
         const accounts = await Account.find()
         res.json(accounts)
     } catch (err){
@@ -15,7 +19,8 @@ router.get('/', async (req, res) => {
 
 //Get one
 router.get('/:username', getAcc, async (req, res) => {
-    const user = await Account.find(req.body.username)
+    let user = await Account.find(req.body.username)
+    if (!req.headers['password']) return;
     console.log(req.headers['password'])
     const check = await bcrypt.compare(req.headers['password'], user[0].password);
     console.log(check)
@@ -23,7 +28,7 @@ router.get('/:username', getAcc, async (req, res) => {
         res.status(403).json("Incorrect Password")
         return;
     }
-    res.json(res.acc)
+    res.status(201).json(res.acc)
 })
 
 //Get one by sessionId
@@ -68,7 +73,7 @@ async function getAcc(req, res, next){
     let acc;
     try {
         acc = await Account.find({username: req.params.username})
-        if (acc == null) {
+        if (acc.length == 0) {
             return res.status(404).json({ message: 'Cannot find account'})
         }
     } catch (err) {

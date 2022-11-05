@@ -213,17 +213,6 @@ function zoom(zoomincrement) {
   draw()
 }
 
-
-function checkSessionId(sessionId){
-  if(!sessionId) return false;
-  const url = `https://localhost:3000/config/${sessionId}`
-  const req = new XMLHttpRequest();
-  req.open("GET", url, true)
-  req.send()
-  if (!req) return false;
-  return true;
-}
-
 function showNotLoggedIn(){
   alert('not logged in yet')
   document.getElementById('loginFalse').style.display="block"
@@ -238,6 +227,10 @@ function showDateTime(){
   
   document.getElementById('date-time').innerHTML=time;
   setTimeout(showDateTime, 1000)
+}
+
+function profileInit(){
+  
 }
 
 function init() {
@@ -278,9 +271,17 @@ function init() {
     else { zoom(0.75) }
   })
   draw()
+
+  //Checking if the user is logged in
   let sessionId = localStorage.getItem("sessionId")
-  const check = checkSessionId(sessionId)
-  if (!sessionId || check == false) showNotLoggedIn()
+  let req = new XMLHttpRequest()
+  req.open("GET", 'http://localhost:3000/config', true);
+  req.setRequestHeader('sessionId', sessionId);
+  req.send()
+  req.onload = function(){
+    let res = JSON.parse(req.response)
+    if (!res || res.length == 0) showNotLoggedIn;
+  }
 }
 
 window.onload = init

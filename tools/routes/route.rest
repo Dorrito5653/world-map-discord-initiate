@@ -5,6 +5,9 @@ GET http://localhost:3000/config/
 GET http://localhost:3000/config/Egg
 
 ###
+GET http://localhost:3000/config/gF-2S46fBcwaSGds_sWtG6F2sZt52
+
+###
 
 //Do not add ',' at the end
 POST http://localhost:3000/config
@@ -15,7 +18,7 @@ Content-Type: application/json
     "password": "$Egg21@vsianAI",
     "email": "atharvhasALIFE@gmail.com",
     "VIP": false,
-    "sessionId": "gF-2S46fBcwaSGds_sWtG/6F2sZt52",
+    "sessionId": "gF-2S46fBcwaSGds_sWtG6F2sZt52",
     "created_date": 0,
     "updated_date": 0
 }
