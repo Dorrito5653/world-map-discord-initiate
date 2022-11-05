@@ -13,6 +13,40 @@ body {
     background-color: navy;
 }
 
+.resources-left {
+    position: absolute;
+    top: 0;
+    width: 45vw;
+    height: 60px;
+}
+
+.resources-left button {
+    float: right;
+    width: auto + 5px;
+    height: 100%;
+    vertical-align: middle;
+    border: none;
+    border-right: 3px solid grey;
+    background-color: darkslategrey;
+}
+
+.resources-left button:hover + .hover-text{
+    cursor: pointer;
+    display: block;
+} 
+
+.hover-text{
+    display: none;
+    position: absolute;
+    left: 300px;
+    top: 20px;
+    width: auto;
+    color: white;
+    background: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+}
+
 .warning {
     position: absolute;
     font-size: x-small;
@@ -312,4 +346,7 @@ canvas {
 #spectate-link {
     top: 50%;
     left: 23.3%
+}
+
+@media only screen and (max-width: 1024) {
 }

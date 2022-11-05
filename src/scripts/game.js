@@ -230,7 +230,13 @@ function showDateTime(){
 }
 
 function profileInit(){
-  
+
+}
+
+function windowInit() {
+  if (window.innerWidth < 1024) {
+    document.getElementById('time-display').remove()
+  }
 }
 
 function init() {
@@ -282,6 +288,7 @@ function init() {
     let res = JSON.parse(req.response)
     if (!res || res.length == 0) showNotLoggedIn;
   }
+  windowInit()
 }
 
 window.onload = init
