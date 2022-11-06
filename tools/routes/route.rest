@@ -2,7 +2,7 @@ GET http://localhost:3000/config/
 
 ###
 
-GET http://localhost:3000/config/Egg
+GET http://localhost:3000/config/OI41092
 
 ###
 GET http://localhost:3000/config/gF-2S46fBcwaSGds_sWtG6F2sZt52
