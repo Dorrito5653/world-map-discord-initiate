@@ -272,7 +272,6 @@ function windowInit() {
 function init() {
   canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d')
-  draw()
 
   // Zoom in and zoom out buttons
   document.getElementById('zoomout').addEventListener('click', function () {
@@ -306,7 +305,24 @@ function init() {
     if (scrollingUp) { zoom(1.25) }
     else { zoom(0.75) }
   })
-  draw()
+
+  document.addEventListener('keydown', (ev) => {
+    switch (ev.key) {
+      case "ArrowLeft":
+        canvasOffsetX -= 20
+        break;
+      case "ArrowRight":
+        canvasOffsetX += 20
+        break;
+      case "ArrowUp":
+        canvasOffsetY -= 20
+        break;
+      case "ArrowDown":
+        canvasOffsetY += 20
+        break;
+    }
+    draw()
+  })
 
   //Checking if the user is logged in
   let sessionId = localStorage.getItem("sessionId")
@@ -320,6 +336,7 @@ function init() {
   }
   windowInit()
   resourcesInit(sessionId)
+  draw()
 }
 
 window.onload = init
