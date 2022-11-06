@@ -25,4 +25,19 @@ app.use(
 );
 app.use('/config', router);
 
-app.listen(3000, () => console.log('Server Started'))
+app.listen(3000, () => console.log('DB Server Started'))
+
+const jsonFiles = express();
+const jsonRoutes = require('./tools/routes/json');
+
+jsonFiles.use(
+  express.json(),
+  cors({
+    origin: "*",
+    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+    credentials: true
+  })
+);
+jsonFiles.use('/json', jsonRoutes)
+
+jsonFiles.listen(8000, () => console.log('JSON Collection Started'))

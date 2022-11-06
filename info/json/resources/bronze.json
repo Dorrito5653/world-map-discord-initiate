@@ -1,0 +1,10 @@
+{
+    "type": "resource",
+    "id": 14,
+    "name": "bronze",
+    "data": {
+        "cost": 25,
+        "sell": 5,
+        "rarity": "common"
+    }
+}

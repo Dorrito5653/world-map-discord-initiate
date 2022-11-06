@@ -5,6 +5,6 @@
     "data": {
         "cost": 50,
         "sell": 10,
-        "rarity": "uncommon"
+        "rarity": "common"
     }
 }

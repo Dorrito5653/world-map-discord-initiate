@@ -32,3 +32,15 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:3000/config/OI41092/
+
+###
+
+GET http://localhost:8000/json
+
+###
+
+GET http://localhost:8000/json/resources
+
+###
+
+GET http://localhost:8000/json/resources/17

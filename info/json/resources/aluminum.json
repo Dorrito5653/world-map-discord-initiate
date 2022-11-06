@@ -1,0 +1,10 @@
+{
+    "type": "resource",
+    "id": 18,
+    "name": "aluminum",
+    "data": {
+        "cost": 80,
+        "sell": 20,
+        "rarity": "uncommon"
+    }
+}
