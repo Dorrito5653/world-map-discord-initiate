@@ -63,8 +63,8 @@ router.patch('/:id', (req, res) => {
 router.delete('/:username', getAcc, async (req, res) => {
     try {
         console.log(res.acc)
-        await res.acc.remove()
-        res.json({ message: 'Deleted subscriber'})
+        await Account.findOneAndDelete({ username: req.body.username });
+        res.json({ message: 'Deleted Account'})
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
