@@ -1,0 +1,10 @@
+{
+    "type": "resource",
+    "id": 17,
+    "name": "gold",
+    "data": {
+        "cost": 50,
+        "sell": 10,
+        "rarity": "uncommon"
+    }
+}

@@ -9,6 +9,10 @@ const loginSchema = new mongoose.Schema({
     sessionId: mongoose.Schema.Types.String,
     created_date: mongoose.Schema.Types.Date,
     updated_date: mongoose.Schema.Types.Date,
+    resources: [{
+        id: mongoose.Schema.Types.Number,
+        amount: mongoose.Schema.Types.Number,
+    }]
 })
 //Hashing: We do this later
 loginSchema.pre('save', async function(next){

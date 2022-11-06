@@ -229,6 +229,36 @@ function showDateTime(){
   setTimeout(showDateTime, 1000)
 }
 
+function resourcesInit(sessionId) {
+  const req = new XMLHttpRequest()
+  req.open("GET", 'http://localhost:3000/config', true)
+  req.setRequestHeader('sessionId', sessionId)
+  req.send()
+  req.onload = function() {
+    let res = JSON.parse(req.response);
+    let goldobj = res[0].resources.find(entry => entry.id === 17);
+    if(goldobj) goldobj = goldobj.amount
+    else goldobj = 0
+    let bronzeobj = res[0].resources.find(entry => entry.id === 14);
+    if(bronzeobj) bronzeobj = bronzeobj.amount
+    else bronzeobj = 0
+    let silverobj = res[0].resources.find(entry => entry.id === 15);
+    if (silverobj) silverobj = silverobj.amount
+    else silverobj = 0
+    let aluminumobj = res[0].resources.find(entry => entry.id === 18);
+    if (aluminumobj) aluminumobj = aluminumobj.amount
+    else aluminumobj = 0
+    let geostoneobj = res[0].resources.find(entry => entry.id === 16);
+    if(geostoneobj) geostoneobj = geostoneobj.amount;
+    else geostoneobj = 0
+    document.getElementById('gold-amt').innerHTML=goldobj;
+    document.getElementById('bronze-amt').innerHTML=bronzeobj;
+    document.getElementById('silver-amt').innerHTML=silverobj;
+    document.getElementById('aluminum-amt').innerHTML=aluminumobj;
+    document.getElementById('geostone-amt').innerHTML=geostoneobj;
+  }
+}
+
 function profileInit(){
 
 }
@@ -286,9 +316,10 @@ function init() {
   req.send()
   req.onload = function(){
     let res = JSON.parse(req.response)
-    if (!res || res.length == 0) showNotLoggedIn;
+    if (!res || res.length == 0) showNotLoggedIn();
   }
   windowInit()
+  resourcesInit(sessionId)
 }
 
 window.onload = init

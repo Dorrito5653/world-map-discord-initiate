@@ -20,7 +20,13 @@ Content-Type: application/json
     "VIP": false,
     "sessionId": "gF-2S46fBcwaSGds_sWtG6F2sZt52",
     "created_date": 0,
-    "updated_date": 0
+    "updated_date": 0,
+    "resources": [
+        {
+            "id": 1,
+            "amount": 6
+        }
+    ]
 }
 
 ###

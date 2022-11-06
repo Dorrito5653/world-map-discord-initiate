@@ -45,7 +45,8 @@ router.post('/', async (req, res) => {
         VIP: req.body.VIP,
         sessionId: req.body.sessionId,
         created_date: req.body.created_date,
-        updated_date: req.body.updated_date
+        updated_date: req.body.updated_date,
+        resources: req.body.resources
     })
     try {
         const newacc = await acc.save()

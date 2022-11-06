@@ -33,7 +33,7 @@ body {
 .resources-left button:hover + .hover-text{
     cursor: pointer;
     display: block;
-} 
+}
 
 .hover-text{
     display: none;
