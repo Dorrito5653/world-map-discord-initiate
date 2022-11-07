@@ -236,17 +236,18 @@ function resourcesInit(sessionId) {
   req.send()
   req.onload = function() {
     let res = JSON.parse(req.response)
+    console.log(res[0].resources)
     const resList = new Map()
     resList.set(14, 'bronze')
     resList.set(15, 'silver')
     resList.set(16, 'geostone')
     resList.set(17, 'gold')
     resList.set(18, 'aluminum')
-    for (const entry of res) {
+    for (let entry of res[0].resources) {
       if (entry.id == 14 || 15 || 16 || 17 || 18) {
         const key = resList.get(entry.id)
-        const amount = res[0].resources.find(doc => doc.id === entry.id);
-        document.getElementById(key).innerHTML=amount;
+        const amount = res[0].resources.find(doc => doc.id === entry.id).amount;
+        document.getElementById(key+"-amt").innerHTML=amount;
       }
     }
   }
