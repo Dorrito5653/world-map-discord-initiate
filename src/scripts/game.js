@@ -235,27 +235,20 @@ function resourcesInit(sessionId) {
   req.setRequestHeader('sessionId', sessionId)
   req.send()
   req.onload = function() {
-    let res = JSON.parse(req.response);
-    let goldobj = res[0].resources.find(entry => entry.id === 17);
-    if(goldobj) goldobj = goldobj.amount
-    else goldobj = 0
-    let bronzeobj = res[0].resources.find(entry => entry.id === 14);
-    if(bronzeobj) bronzeobj = bronzeobj.amount
-    else bronzeobj = 0
-    let silverobj = res[0].resources.find(entry => entry.id === 15);
-    if (silverobj) silverobj = silverobj.amount
-    else silverobj = 0
-    let aluminumobj = res[0].resources.find(entry => entry.id === 18);
-    if (aluminumobj) aluminumobj = aluminumobj.amount
-    else aluminumobj = 0
-    let geostoneobj = res[0].resources.find(entry => entry.id === 16);
-    if(geostoneobj) geostoneobj = geostoneobj.amount;
-    else geostoneobj = 0
-    document.getElementById('gold-amt').innerHTML=goldobj;
-    document.getElementById('bronze-amt').innerHTML=bronzeobj;
-    document.getElementById('silver-amt').innerHTML=silverobj;
-    document.getElementById('aluminum-amt').innerHTML=aluminumobj;
-    document.getElementById('geostone-amt').innerHTML=geostoneobj;
+    let res = JSON.parse(req.response)
+    const resList = new Map()
+    resList.set(14, 'bronze')
+    resList.set(15, 'silver')
+    resList.set(16, 'geostone')
+    resList.set(17, 'gold')
+    resList.set(18, 'aluminum')
+    for (const entry of res) {
+      if (entry.id == 14 || 15 || 16 || 17 || 18) {
+        const key = resList.get(entry.id)
+        const amount = res[0].resources.find(doc => doc.id === entry.id);
+        document.getElementById(key).innerHTML=amount;
+      }
+    }
   }
 }
 

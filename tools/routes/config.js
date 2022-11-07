@@ -62,8 +62,7 @@ router.patch('/:id', (req, res) => {
 //Deleting one
 router.delete('/:username', getAcc, async (req, res) => {
     try {
-        console.log(res.acc)
-        await Account.findOneAndDelete({ username: req.body.username });
+        Account.remove({username: req.params.username}, {justOne: true} )
         res.json({ message: 'Deleted Account'})
     } catch (err) {
         res.status(500).json({ message: err.message })
