@@ -3,7 +3,6 @@ from tools.models.city import City
 from tools.models.country import Country
 from typing import TYPE_CHECKING, Literal
 
-from tools.models.country_province import CountryProvince
 from tools.models.terrain import Terrain
 
 if TYPE_CHECKING:

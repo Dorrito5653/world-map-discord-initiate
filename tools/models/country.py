@@ -7,7 +7,6 @@ if TYPE_CHECKING:
     from .terrain import Terrain
     from .country_alliance import CountryAlliance
     from .city import City
-    from .country_province import CountryProvince
     from websockets.legacy.server import WebSocketServerProtocol
 
 countries_obj: TypeAlias = Literal[
@@ -57,7 +56,6 @@ class Country:
         leader: WebSocketServerProtocol | None = None, # Leader is None if it is an AI
         cities: list[City],
         land_area: int, # in kilometers squared
-        provinces: list[CountryProvince],
         capitol: City,
         main_terrain: Terrain,
         military_pop: str = '0',
@@ -89,7 +87,6 @@ class Country:
         self.leader = leader
         self.cities = cities
         self.land_area = land_area
-        self.provinces = provinces
         self.capitol = capitol
         self.google_doc = google_doc
 
