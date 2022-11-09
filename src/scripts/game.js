@@ -1,13 +1,7 @@
 var px_size = 30,
   canvas = null,
   ctx = null,
-  tiles = [
-    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
-    ['desert', 'city', 'desert', 'city', 'desert', 'city', 'desert', 'city'],
-    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
-    ['desert', 'city', 'desert', 'city', 'desert', 'city', 'desert', 'city'],
-    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
-  ],
+  map = null,
   canvasOffsetX = 0,
   canvasOffsetY = 0,
   mousePressed = false,
@@ -38,15 +32,15 @@ function syncacc() {
 
 }
 
-function wMenu(type){
+function wMenu(type) {
   switch (type) {
-    case 'none': 
+    case 'none':
       break;
-    
+
     case 'tanks':
       alert('tonk')
 
-    default: 
+    default:
       break;
   }
 }
@@ -128,9 +122,11 @@ function connect() {
 
     if (data.type === 'error') {
       error(data.message)
-    } else if (joinLink === null && spectateLink === null) {
-      // Sucessful
+    } else if (data.type === 'start') {
+      // initial data
       drawJoinSpecatateLink(data.join, data.spectate)
+      map = data.map
+      gameInit()
     }
   }
 }
@@ -200,6 +196,7 @@ function isSquareVisible(x, y) {
 
 function draw() {
   clear()
+  var tiles = map.tiles
   for (var y = 0; y < tiles.length; y++) {
     row = tiles[y]
     for (var x = 0; x < row.length; x++) {
@@ -215,19 +212,19 @@ function zoom(zoomincrement) {
   draw()
 }
 
-function showNotLoggedIn(){
+function showNotLoggedIn() {
   alert('not logged in yet')
-  document.getElementById('loginFalse').style.display="block"
+  document.getElementById('loginFalse').style.display = "block"
 }
 
-function showDateTime(){
+function showDateTime() {
   let dt = new Date();
   let hours = dt.getHours() > 12 ? dt.getHours() - 12 : dt.getHours()
   let minutes = dt.getMinutes() < 10 ? "0" + dt.getMinutes() : dt.getMinutes()
   const ampm = dt.getHours() < 12 ? "AM" : "PM"
   let time = `${hours} ` + `${minutes}${ampm}`
-  
-  document.getElementById('date-time').innerHTML=time;
+
+  document.getElementById('date-time').innerHTML = time;
   setTimeout(showDateTime, 1000)
 }
 
@@ -259,7 +256,7 @@ function resourcesInit(sessionId) {
   }
 }
 
-function profileInit(){
+function profileInit() {
 
 }
 
@@ -269,10 +266,8 @@ function windowInit() {
   }
 }
 
-function init() {
-  canvas = document.querySelector('canvas'),
-    ctx = canvas.getContext('2d')
-
+function gameInit() {
+  clear()
   // Zoom in and zoom out buttons
   document.getElementById('zoomout').addEventListener('click', function () {
     zoom(0.5);
@@ -287,8 +282,8 @@ function init() {
   })
   canvas.addEventListener('mousemove', (ev) => {
     if (mousePressed) {
-      canvasOffsetX += ev.movementX / 5
-      canvasOffsetY += ev.movementY / 5
+      canvasOffsetX += ev.movementX
+      canvasOffsetY += ev.movementY
       draw()
     }
   })
@@ -323,6 +318,15 @@ function init() {
     }
     draw()
   })
+  draw()
+}
+
+function init() {
+  canvas = document.querySelector('canvas')
+  ctx = canvas.getContext('2d')
+
+  canvas.width = canvas.getBoundingClientRect().width;
+  canvas.height = canvas.getBoundingClientRect().height;
 
   //Checking if the user is logged in
   let sessionId = localStorage.getItem("sessionId")
@@ -330,13 +334,16 @@ function init() {
   req.open("GET", 'http://localhost:3000/config', true);
   req.setRequestHeader('sessionId', sessionId);
   req.send()
-  req.onload = function(){
+  req.onload = function () {
     let res = JSON.parse(req.response)
     if (!res || res.length == 0) showNotLoggedIn();
   }
   windowInit()
   resourcesInit(sessionId)
-  draw()
+
+  ctx.font = '6rem Arial'
+  ctx.fillStyle = "#fff";
+  ctx.fillText('Press "Battle!" to start', 200, 400)
 }
 
 window.onload = init
