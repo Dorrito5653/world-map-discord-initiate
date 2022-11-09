@@ -183,7 +183,7 @@ body {
     top: 5vh;
     left: 0;
     margin: 0;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .sidebar .links a {
@@ -333,8 +333,8 @@ canvas {
     background-color: rgb(63, 215, 99);
     border: 1px solid darkgreen;
     position: absolute;
-    left: 25%;
-    font-size: 1em;
+    left: 15%;
+    font-size: 1rem;
     top: 10%;
 }
 
