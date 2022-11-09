@@ -146,9 +146,11 @@ function drawJoinSpecatateLink(joinId, spectateId) {
 
   let spectate = document.getElementById('spectate-link')
   let join = document.getElementById('join-link')
+  let div = document.querySelector('.copy-link')
 
   spectate.style.display = 'inline'
   join.style.display = 'inline'
+  div.style.display = 'unset'
 
   spectate.addEventListener('click', copySpectateLink)
   join.addEventListener('click', copyJoinLink)
