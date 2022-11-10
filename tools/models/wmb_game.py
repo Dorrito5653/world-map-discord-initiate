@@ -43,7 +43,7 @@ class WMBGame:
         self.connections: list[WebSocketServerProtocol] = []
         self.join_code = join_code
         self.spectate_code = spectate_code
-        self.map: dict[Literal['tiles', 'sea', 'countries', 'cities']] = {
+        self.map: dict[Literal['tiles', 'sea', 'countries', 'cities'], list[list[str]] | dict] = {
             'tiles': STARTING_TILES,
             'sea': [[]], # which tiles are sea and which are land
             'countries': [[]], # which area of land is owned by which country
