@@ -1,13 +1,17 @@
+class Tile {
+  constructor (xpos, ypos, terrain, tilenum, items){
+    this.xpos = xpos;
+    this.ypos = ypos;
+    this.terrain = terrain;
+    this.tilenum = tilenum;
+    this.items = items;
+  }
+}
+
 var px_size = 30,
   canvas = null,
   ctx = null,
-  tiles = [
-    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
-    ['desert', 'city', 'desert', 'city', 'desert', 'city', 'desert', 'city'],
-    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
-    ['desert', 'city', 'desert', 'city', 'desert', 'city', 'desert', 'city'],
-    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
-  ],
+  tiles = generateTiles(),
   canvasOffsetX = 0,
   canvasOffsetY = 0,
   mousePressed = false,
@@ -32,6 +36,79 @@ for (const key in textures) {
     const img = textures[key];
     img.src = `../tools/images/tiles/${key}.jpg`
   }
+}
+
+async function generateTiles() {
+  var tileLength = 8,
+    tileWidth = 5,
+    arrayOfTiles = [],
+    numOfTiles = 40;
+  
+  for (let i = 0; i < tileWidth; i++) {
+    arrayOfTiles[i] = [];
+  }
+
+  let tilenum = 0;
+  for (let g = 0; g < tileWidth; g++) {
+    for (let i = 0; i < tileLength; i++) {
+      let tile = new Tile(i, g, null, tilenum, null)
+      let waterbool = (Math.random() * 100).toFixed(0) % 3;
+      if (waterbool == 0) waterbool = true
+      else if (waterbool == 1) waterbool = false;
+      else waterbool = false;
+      if (waterbool == true) {
+        tile.terrain = "water"
+      } else {
+        tile.terrain = "flatland"
+      }
+      tilenum++
+    }
+  }
+  
+  for (let i = 0; i < tileLength; i++) {
+    let tile = new Tile(i, 0, null, i, [])
+    let waterbool = (Math.random() * 100).toFixed(0)
+    if (waterbool == 0) waterbool = false;
+    else waterbool = true;
+    if (waterbool == true) {
+      tile.terrain = "water"
+    } else {
+      if (!arrayOfTiles[0][i-1]) return;
+      if (!arrayOfTiles[0][i+1]) return;
+      let leftTileProperty = arrayOfTiles[0][i-1].Tile.terrain,
+        rightTileProperty = arrayOfTiles[0][i+1].Tile.terrain;
+      
+      if (leftTileProperty == 'water' && rightTileProperty == 'water') tile.terrain = "water";
+      if (leftTileProperty == 'water' && rightTileProperty !== "water" || rightTileProperty == "water" && leftTileProperty !== "water") {
+        let newWaterBool = (Math.random() * 100).toFixed(0);
+        if (newWaterBool == 0) {
+          newWaterBool = true;
+          tile.terrain = "water"
+        }
+        else newWaterBool = false;
+      }
+      if (tile.terrain == "water") return;
+
+    }
+
+    arrayOfTiles[0][i] = tile;
+  }
+}
+
+function tilesAround(array) {
+  let arrayOfTiles = {
+    left: Tile,
+    right: Tile,
+    top: Tile,
+    bottom: Tile,
+    topleft: Tile,
+    topright: Tile,
+    bottomleft: Tile,
+    bottomright: Tile
+  }
+
+  arrayOfTiles.left
+  return arrayOfTiles;
 }
 
 function syncacc() {

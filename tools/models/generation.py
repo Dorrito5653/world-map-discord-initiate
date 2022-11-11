@@ -8,7 +8,3 @@ num_to_tile = {
     7: "snow", 
     8: "water", 
 }
-
-def generate():
-    numOfTiles = 25
-    
