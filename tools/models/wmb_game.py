@@ -1,9 +1,8 @@
 from __future__ import annotations
 from tools.models.city import City
 from tools.models.country import Country
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Literal
 
-from tools.models.country_province import CountryProvince
 from tools.models.terrain import Terrain
 
 if TYPE_CHECKING:
@@ -11,24 +10,12 @@ if TYPE_CHECKING:
 
 __all__ = ["WMBGame", "num_to_tile", "STARTING_TILES"]
 
-num_to_tile = {
-    1: "city",
-    2: "desert",
-    3: "forest", 
-    4: "grassland", 
-    5: "jungle", 
-    6: "mountain", 
-    7: "snow", 
-    8: "water", 
-} 
-
 STARTING_TILES = [
-    [8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
-    [8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 1],
-    [8, 7, 7, 7, 7, 7, 1, 7, 7, 7, 7, 7, 7],
-    [8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
-    [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
-    [1, 7, 7, 7, 7, 1, 7, 7, 7, 7, 7, 7, 7],
+    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
+    ['desert', 'city', 'desert', 'city', 'desert', 'city', 'desert', 'city'],
+    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
+    ['desert', 'city', 'desert', 'city', 'desert', 'city', 'desert', 'city'],
+    ['city', 'desert', 'city', 'desert', 'city', 'desert', 'city', 'desert'],
 ]
 
 
@@ -40,7 +27,6 @@ class WMBGame:
                 name="USSR",
                 cities=[],
                 land_area=10000,
-                provinces=[],
                 capitol=None,
                 main_terrain=Terrain(desert=True, mountainous=True),
             ),
@@ -48,7 +34,6 @@ class WMBGame:
                 name="USSR2",
                 cities=[],
                 land_area=10000,
-                provinces=[],
                 capitol=None,
                 main_terrain=Terrain(desert=True, mountainous=True),
             ),
@@ -56,6 +41,12 @@ class WMBGame:
         self.connections: list[WebSocketServerProtocol] = []
         self.join_code = join_code
         self.spectate_code = spectate_code
+        self.map: dict[Literal['tiles', 'sea', 'countries', 'cities'], list[list[str]] | dict] = {
+            'tiles': STARTING_TILES,
+            'sea': [[]], # which tiles are sea and which are land
+            'countries': [[]], # which area of land is owned by which country
+            'cities': {} # Coordinates of each city and their name
+        }
 
     def add_player(self, conn: WebSocketServerProtocol, country: str):
         """

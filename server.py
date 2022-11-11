@@ -10,7 +10,7 @@ import websockets
 import logging
 import os
 import secrets
-from tools.models.wmb_game import WMBGame, STARTING_TILES, num_to_tile
+from tools.models.wmb_game import WMBGame, STARTING_TILES
 
 if TYPE_CHECKING:
     from websockets.legacy.server import WebSocketServerProtocol
@@ -61,7 +61,8 @@ async def create_game(ws: WebSocketServerProtocol, country: str):
         event = {
             'type': 'start',
             'join': join_id,
-            'spectate': spectate_id
+            'spectate': spectate_id,
+            'map': game.map
         }
 
         await ws.send(json.dumps(event))

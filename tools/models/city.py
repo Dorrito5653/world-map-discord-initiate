@@ -4,7 +4,6 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .terrain import Terrain
-    from .country_province import CountryProvince
     from .country import Country
 
 
@@ -15,16 +14,10 @@ class City:
     population: int
     terrain: Terrain
     economy: int # amount of money this city gives to the government
-    province: CountryProvince
     country: Country
 
     id: int # store an ID for each city so that there can be multiple
     # cities with the same name across different countries, and provinces
-    
-    @property
-    def is_capitol_of_province(self):
-        """Whether this city is the capitol of a province"""
-        return self is self.province.capitol
     
     @property
     def is_capitol_of_country(self):
