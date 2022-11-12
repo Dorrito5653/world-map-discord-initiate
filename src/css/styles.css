@@ -142,7 +142,7 @@ body {
     }
 
     .title {
-        font-size: 50px;
+        font-size: 45px;
     }
 
     @media only screen and (max-width: 1024px) {
@@ -225,7 +225,7 @@ body {
     }
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1000px) {
     #sidebar {
         transform: none;
     }
