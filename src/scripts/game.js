@@ -1,5 +1,5 @@
 class Tile {
-  constructor (xpos, ypos, terrain, tilenum, items){
+  constructor(xpos, ypos, terrain, tilenum, items) {
     this.xpos = xpos;
     this.ypos = ypos;
     this.terrain = terrain;
@@ -40,10 +40,10 @@ for (const key in textures) {
 
 async function generateTiles() {
   var tileLength = 8,
-    tileWidth = 5,
-    arrayOfTiles = [],
-    numOfTiles = 40;
-  
+      tileWidth = 5,
+      arrayOfTiles = [],
+      numOfTiles = 40;
+
   for (let i = 0; i < tileWidth; i++) {
     arrayOfTiles[i] = [];
   }
@@ -64,7 +64,7 @@ async function generateTiles() {
       tilenum++
     }
   }
-  
+
   for (let i = 0; i < tileLength; i++) {
     let tile = new Tile(i, 0, null, i, [])
     let waterbool = (Math.random() * 100).toFixed(0)
@@ -73,11 +73,11 @@ async function generateTiles() {
     if (waterbool == true) {
       tile.terrain = "water"
     } else {
-      if (!arrayOfTiles[0][i-1]) return;
-      if (!arrayOfTiles[0][i+1]) return;
-      let leftTileProperty = arrayOfTiles[0][i-1].Tile.terrain,
-        rightTileProperty = arrayOfTiles[0][i+1].Tile.terrain;
-      
+      if (!arrayOfTiles[0][i - 1]) return;
+      if (!arrayOfTiles[0][i + 1]) return;
+      let leftTileProperty = arrayOfTiles[0][i - 1].Tile.terrain,
+        rightTileProperty = arrayOfTiles[0][i + 1].Tile.terrain;
+
       if (leftTileProperty == 'water' && rightTileProperty == 'water') tile.terrain = "water";
       if (leftTileProperty == 'water' && rightTileProperty !== "water" || rightTileProperty == "water" && leftTileProperty !== "water") {
         let newWaterBool = (Math.random() * 100).toFixed(0);
@@ -316,7 +316,7 @@ function resourcesInit(sessionId) {
   req.open("GET", 'http://localhost:3000/config', true)
   req.setRequestHeader('sessionId', sessionId)
   req.send()
-  req.onload = function() {
+  req.onload = function () {
     let res = JSON.parse(req.response)
     const resList = new Map()
     resList.set(14, 'bronze')
