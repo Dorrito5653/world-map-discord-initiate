@@ -1,10 +1,14 @@
-body {
+html {
     background-color: black;
     font-size: 20px;
     color: grey;
     font-family: Tahoma;
     text-align: center;
-    background: url("../../tools/images/backgrounds/wallpaper.jpg") no-repeat;
+    background: url('../../tools/images/backgrounds/wallpaper.jpg') center center fixed; 
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -157,9 +161,7 @@ body {
         @media only screen and (max-width: 565px) {
             body {
                 font-size: 15px;
-                background: url("../../tools/images/backgrounds/portraitbackground.jpg") no-repeat;
                 margin: 0 auto;
-                background-size: cover;
             }
 
             .title {
@@ -181,8 +183,6 @@ body {
             @media only screen and (max-width: 500px) {
                 body {
                     font-size: 12px;
-                    background: url("../../tools/images/backgrounds/portraitwallpaper.jpg") no-repeat;
-                    background-size: cover;
                 }
 
                 .title {
