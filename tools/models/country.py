@@ -9,23 +9,6 @@ if TYPE_CHECKING:
     from .city import City
     from websockets.legacy.server import WebSocketServerProtocol
 
-countries_obj: TypeAlias = Literal[
-    'Nukeistan',
-    'Abdullistan',
-    'Dangerstan',
-    'Deez',
-    'Nuts',
-    'Laggystan',
-    'United Congo',
-    'Eggystan',
-    'Gamerstan',
-    'Pingistan',
-    'Nukeistan',
-    'Prussia',
-    'Greenistan',
-    'USSR'
-]
-
 # same as _military_info but has "population" in it
 _power_info: TypeAlias = Literal[
     'tanks',
@@ -52,7 +35,7 @@ class Country:
     def __init__(
         self,
         *,
-        name: countries_obj,
+        name: str,
         leader: WebSocketServerProtocol | None = None, # Leader is None if it is an AI
         cities: list[City],
         land_area: int, # in kilometers squared
