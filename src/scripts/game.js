@@ -39,6 +39,7 @@ for (const key in textures) {
 }
 
 async function generateTiles() {
+  
   var tileLength = 8,
       tileWidth = 5,
       arrayOfTiles = [],
