@@ -312,10 +312,10 @@ function showDateTime() {
   setTimeout(showDateTime, 1000)
 }
 
-function resourcesInit(sessionId) {
+function resourcesInit(token) {
   const req = new XMLHttpRequest()
   req.open("GET", 'http://localhost:3000/config', true)
-  req.setRequestHeader('sessionId', sessionId)
+  req.setRequestHeader('token', token)
   req.send()
   req.onload = function () {
     let res = JSON.parse(req.response)
@@ -413,17 +413,17 @@ function init() {
   canvas.height = canvas.getBoundingClientRect().height;
 
   //Checking if the user is logged in
-  let sessionId = localStorage.getItem("sessionId")
+  let token = localStorage.getItem("token")
   let req = new XMLHttpRequest()
   req.open("GET", 'http://localhost:3000/config', true);
-  req.setRequestHeader('sessionId', sessionId);
+  req.setRequestHeader('token', token);
   req.send()
   req.onload = function () {
     let res = JSON.parse(req.response)
     if (!res || res.length == 0) showNotLoggedIn();
   }
   windowInit()
-  resourcesInit(sessionId)
+  resourcesInit(token)
 
   ctx.font = '6rem Arial'
   ctx.fillStyle = "#fff";

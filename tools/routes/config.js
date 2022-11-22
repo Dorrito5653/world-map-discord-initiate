@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router()
 const Account = require('../models/login')
 const bcrypt = require('bcryptjs')
+const genToken = require("../functions/genToken")
 
 //Get all
 router.get('/', async (req, res) => {
     try {
-    if (req.headers['sessionId']) {
-        const accBySessionId = await Account.find({ sessionId: req.headers['sessionId'] });
-        res.json(accBySessionId)
+    if (req.headers['token']) {
+        const accBytoken = await Account.find({ token: req.headers['token'] });
+        res.json(accBytoken)
     }
         const accounts = await Account.find()
         res.json(accounts)
@@ -31,22 +32,28 @@ router.get('/:username', getAcc, async (req, res) => {
     res.status(201).json(res.acc)
 })
 
-//Get one by sessionId
-router.get('/:sessionId', getAcc, async (req, res) => {
+//Get one by token
+router.get('/:token', getAcc, async (req, res) => {
     res.json(res.acc)
 })
 
 //Creating one
 router.post('/', async (req, res) => {
+    const user = await Account.find({ username: req.body.username })
+    if (user.length != 0) {
+        res.status(409).json("That username already exists. Pick a different one.")
+        return;
+    }
     const acc = new Account({
         username: req.body.username,
         password: req.body.password,
         email: req.body.email,
-        VIP: req.body.VIP,
-        sessionId: req.body.sessionId,
+        VIP: false,
+        token: genToken(),
         created_date: req.body.created_date,
         updated_date: req.body.updated_date,
-        resources: req.body.resources
+        xp: 0,
+        level: 0
     })
     try {
         const newacc = await acc.save()

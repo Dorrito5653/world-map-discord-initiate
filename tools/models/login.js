@@ -6,13 +6,35 @@ const loginSchema = new mongoose.Schema({
     password: mongoose.Schema.Types.String,
     email: mongoose.Schema.Types.String,
     VIP: mongoose.Schema.Types.Boolean,
-    sessionId: mongoose.Schema.Types.String,
+    token: mongoose.Schema.Types.String,
     created_date: mongoose.Schema.Types.Date,
     updated_date: mongoose.Schema.Types.Date,
+    xp: mongoose.Schema.Types.Number,
+    level: mongoose.Schema.Types.Number,
     resources: [{
         id: mongoose.Schema.Types.Number,
         amount: mongoose.Schema.Types.Number,
-    }]
+    }],
+    commander: {
+        id: mongoose.Schema.Types.Number,
+        level: mongoose.Schema.Types.Number,
+        xp: mongoose.Schema.Types.Number
+    },
+    buildings: [{
+        id: mongoose.Schema.Types.Number,
+        level: mongoose.Schema.Types.Number,
+        xp: mongoose.Schema.Types.Number
+    }],
+    weapons: [{
+        id: mongoose.Schema.Types.Number,
+        level: mongoose.Schema.Types.Number,
+        xp: mongoose.Schema.Types.Number
+    }],
+    recruits: [{
+        id: mongoose.Schema.Types.Number,
+        level: mongoose.Schema.Types.Number,
+        xp: mongoose.Schema.Types.Number
+    }],
 })
 //Hashing: We do this later
 loginSchema.pre('save', async function(next){

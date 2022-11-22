@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser');
 
 mongoose.connect(process.env.DBTOKEN || '',{
     useNewUrlParser: true,
@@ -24,6 +24,8 @@ app.use(
   })
 );
 app.use('/config', router);
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.listen(3000, () => console.log('DB Server Started'))
 
