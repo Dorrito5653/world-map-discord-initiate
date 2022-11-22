@@ -9,10 +9,14 @@ router.get('/', async (req, res) => {
     try {
     if (req.headers['token']) {
         const accBytoken = await Account.find({ token: req.headers['token'] });
-        res.json(accBytoken)
+        if (accBytoken.length == 0) {
+            res.status(404).json("Invalid Token")
+            return;
+        }
+        res.status(201).json(accBytoken)
+        return
     }
-        const accounts = await Account.find()
-        res.json(accounts)
+    res.json("Leave the premises this instant!!!\nI know you are there sussy baka.")
     } catch (err){
         res.status(500).json({ message: err.message })
     }

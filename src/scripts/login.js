@@ -45,7 +45,7 @@ function register(){
   const email = document.querySelector('#email').value
   const username = document.querySelector('#username').value
   const password = document.querySelector('#password').value
-  let url = `http://localhost:3000/config/${username}`
+  let url = `http://localhost:3000/config`
 
   let data = new FormData()
   data.append("username", username)
