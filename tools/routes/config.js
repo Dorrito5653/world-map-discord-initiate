@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
         password: req.body.password,
         email: req.body.email,
         VIP: false,
-        token: genToken(),
+        token: await genToken(),
         created_date: req.body.created_date,
         updated_date: req.body.updated_date,
         xp: 0,

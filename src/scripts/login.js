@@ -45,7 +45,7 @@ function register(){
   const email = document.querySelector('#email').value
   const username = document.querySelector('#username').value
   const password = document.querySelector('#password').value
-  let url = `http://localhost:3000/config`
+  let url = `http://127.1.0.1:3000/config`
 
   let data = new FormData()
   data.append("username", username)
@@ -55,7 +55,6 @@ function register(){
   data.append("updated_date", Date.now())
 
   let postreq = new XMLHttpRequest()
-  postreq.open("POST", url, true)
   postreq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   postreq.onload = function(){
     if (postreq.status == 409) {
@@ -67,5 +66,6 @@ function register(){
     }
     alert("Successfully created account")
   }
+  postreq.open("POST", url, true)
   postreq.send(data)
 }
