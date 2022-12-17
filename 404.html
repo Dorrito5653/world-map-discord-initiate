@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>WMW Execute 404</title>
-    <link rel="stylesheet" href="./src/css/404.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-color: rgba(174, 226, 226, 0.445);
+        }
+
+        h1 {
+            margin-top: 15%;
+        }
+
+        #countdown {
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
+
 <body>
     <h1>404 Error: We could not find what you were looking for</h1>
     <p id="countdown"></p>
@@ -24,4 +40,5 @@
         setInterval(decrementCountdown, 1000)
     </script>
 </body>
+
 </html>
