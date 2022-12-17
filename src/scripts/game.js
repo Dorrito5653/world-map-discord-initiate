@@ -1,3 +1,5 @@
+import { Button } from "./canvas.js";
+
 class Tile {
   constructor(xpos, ypos, terrain, tilenum, items) {
     this.xpos = xpos;
@@ -412,8 +414,27 @@ function init() {
   canvas.width = canvas.getBoundingClientRect().width;
   canvas.height = canvas.getBoundingClientRect().height;
 
+  // let btn = new Button({
+  //   text: 'hello',
+  //   font: "10px Arial",
+  //   color: 'red',
+  //   textColor: 'cyan',
+  //   size: 30,
+  //   x: 60,
+  //   y: 60,
+  //   shape: 'square',
+  //   textOffset: [15, 15]
+  // })
+  // btn.draw()
+  // btn.addCallback((ev) => {
+  //   alert('hello')
+  // })
+
   //Checking if the user is logged in
   let token = localStorage.getItem("token")
+  if (token === null) {
+    alert('You are not logged in!')
+  }
   let req = new XMLHttpRequest()
   req.open("GET", 'http://localhost:3000/config', true);
   req.setRequestHeader('token', token);
@@ -428,9 +449,8 @@ function init() {
   ctx.font = '6rem Arial'
   ctx.fillStyle = "#fff";
   ctx.fillText('Press "Battle!" to start', 200, 400)
+
+  showDateTime()
 }
 
 window.onload = init
-window.addEventListener("load", () => {
-  showDateTime()
-})
