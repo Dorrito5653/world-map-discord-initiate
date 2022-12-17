@@ -1,5 +1,3 @@
-import { isCssColor, cssColorToHex, hexToRgb, oppositeRgbColor } from "./colors.js";
-
 function isPointInCircle(x, y, cx, cy, r) {
     var distance = Math.sqrt(Math.pow(x - cx, 2) + Math.pow(y - cy, 2));
     return distance < r;
