@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WMW Execute 404</title>
+    <link rel="stylesheet" href="./src/css/404.css">
+</head>
+<body>
+    <h1>404 Error: We could not find what you were looking for</h1>
+    <p id="countdown"></p>
+    <script>
+        let seconds = 5,
+            countdown = document.getElementById('countdown')
+
+        function decrementCountdown() {
+            countdown.innerHTML = `Taking you to the <a href='https://dorrito5653.github.io/world-map-discord-initiate/src/'>homepage</a> in: ${seconds}`
+            seconds -= 1
+            if (seconds == 0) {
+                window.open('https://dorrito5653.github.io/world-map-discord-initiate/src/', '_self')
+            }
+        }
+
+        setInterval(decrementCountdown, 1000)
+    </script>
+</body>
+</html>
