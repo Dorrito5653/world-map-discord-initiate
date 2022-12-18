@@ -3,15 +3,38 @@ function isPointInCircle(x, y, cx, cy, r) {
     return distance < r;
 }
 
-function isPointInSquare(x, y, squareX, squareY, squareSize) {
+function isPointInRect(x, y, squareX, squareY, squareSize) {
     const squareCorners = [
         [squareX, squareY],
-        [squareX + squareSize, squareY + squareSize]
+        [squareX + squareSize[0], squareY + squareSize[1]]
     ]
     return squareCorners[0][0] <= x && x <= squareCorners[1][0] && squareCorners[0][1] <= y && y <= squareCorners[1][1]
 }
 
 class Button {
+    /**
+     * @param {Object} params
+     * @param {string} [params.text='']
+     * The text that goes in the button, if you want no text, leave this option blank or supply `''`
+     * @param {string} [params.font='20px Arial']
+     * The font of the text in the button, you can probably put any string which is valid for the CSS font attribute
+     * @param {string | CanvasGradient | CanvasPattern} params.color
+     * The color of the button, this is either the color of the outline, or the filling of the button, depending on the `fill` parameter
+     * @param {'circle' | 'rect'} [params.shape='circle']
+     * The shape of this button, only circle and rect are supported
+     * @param {number | number[]} params.size
+     * The size of the button, if the shape is 'circle', this will be the radius of the square as a `number`,
+     * otherwise this will be an array with 2 numbers in it where the first number is the width of the rectangle
+     * and the second is the height
+     * @param {number} params.x The x coordinate of this button
+     * @param {number} params.y The y coordinate of this button
+     * @param {boolean} params.fill Whether to fill the shape or not
+     * 
+     * When this value is `false`, the button will be drawn something like this: ▭
+     * When it is `true` it will be drawn like this: ▬
+     * @param {string | CanvasGradient | CanvasPattern} params.textColor The color of the text inside the button
+     * @param {number[]} [params.textOffset=[0, 0]]
+     */
     constructor({
         text = '',
         font = '20px Arial',
@@ -26,7 +49,7 @@ class Button {
     }) {
         if (
             shape != 'circle' &&
-            shape != 'square'
+            shape != 'rect'
         ) { throw new TypeError(`invalid shape: ${shape}`) }
         this.text = text
         this.font = font
@@ -56,12 +79,12 @@ class Button {
                 0,
                 2 * Math.PI
             )
-        } else if (this.shape == 'square') {
+        } else if (this.shape == 'rect') {
             ctx.rect(
                 this.x,
                 this.y,
-                this.size,
-                this.size
+                this.size[0],
+                this.size[1],
             )
         }
         if (this.fill) {
@@ -89,7 +112,7 @@ class Button {
                     callback(ev)
                 }
             } else {
-                if (isPointInSquare(ev.offsetX, ev.offsetY, this.x, this.y, this.size)) {
+                if (isPointInRect(ev.offsetX, ev.offsetY, this.x, this.y, this.size)) {
                     callback(ev)
                 }
             }

@@ -414,22 +414,6 @@ function init() {
   canvas.width = canvas.getBoundingClientRect().width;
   canvas.height = canvas.getBoundingClientRect().height;
 
-  // let btn = new Button({
-  //   text: 'hello',
-  //   font: "10px Arial",
-  //   color: 'red',
-  //   textColor: 'cyan',
-  //   size: 30,
-  //   x: 60,
-  //   y: 60,
-  //   shape: 'square',
-  //   textOffset: [15, 15]
-  // })
-  // btn.draw()
-  // btn.addCallback((ev) => {
-  //   alert('hello')
-  // })
-
   //Checking if the user is logged in
   let token = localStorage.getItem("token")
   if (token === null) {
@@ -449,6 +433,25 @@ function init() {
   ctx.font = '6rem Arial'
   ctx.fillStyle = "#fff";
   ctx.fillText('Press "Battle!" to start', 200, 400)
+
+  // let btn = new Button({
+  //   text: 'hello',
+  //   font: '10em Arial',
+  //   color: 'red',
+  //   textColor: 'cyan',
+  //   size: [90, 50],
+  //   x: 600,
+  //   y: 600,
+  //   shape: 'rect',
+  //   textOffset: [15, 15],
+  //   fill: true
+  // })
+  // btn.draw()
+  // console.log(btn)
+  // btn.addCallback((ev) => {
+  //   console.log('hello')
+  //   alert('hello')
+  // })
 
   showDateTime()
 }
