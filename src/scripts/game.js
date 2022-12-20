@@ -17,10 +17,8 @@ var px_size = 30,
   canvasOffsetX = 0,
   canvasOffsetY = 0,
   mousePressed = false,
-  scrolling = false,
   spectateLink = null,
-  joinLink = null,
-  lastScrollTop = 0;
+  joinLink = null;
 
 const textures = {
   city: new Image(),

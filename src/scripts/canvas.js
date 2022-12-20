@@ -12,6 +12,36 @@ function isPointInRect(x, y, squareX, squareY, squareSize) {
 }
 
 class Button {
+    /** The text that goes in the button */
+    text
+    /** The font of the text in the button */
+    font
+    /** The color of the button, this is either the color of the outline, or the filling of the button, depending on the `fill` parameter */
+    color
+    /** The shape of this button */
+    shape
+    /** 
+     * The size of the button, if the shape is 'circle', this will be the radius of the square as a number,
+     * otherwise this will be an array with 2 numbers in it where the first number is the width of the rectangle
+     * and the second is the height 
+     */
+    size
+    x
+    y
+    /**Whether to fill the shape or not
+     * 
+     * When this value is `false`, the button will be drawn something like this: ▭
+     * When it is `true` it will be drawn like this: ▬
+     */
+    fill
+    textColor
+    textOffset
+    /**
+     * A function that gets called when the button is clicked on
+     * @type {null | (ev: MouseEvent) => *}
+     */
+    onclick = null
+
     /**
      * @param {Object} params
      * @param {string} [params.text='']
@@ -23,7 +53,7 @@ class Button {
      * @param {'circle' | 'rect'} [params.shape='circle']
      * The shape of this button, only circle and rect are supported
      * @param {number | number[]} params.size
-     * The size of the button, if the shape is 'circle', this will be the radius of the square as a `number`,
+     * The size of the button, if the shape is 'circle', this will be the radius of the square as a number,
      * otherwise this will be an array with 2 numbers in it where the first number is the width of the rectangle
      * and the second is the height
      * @param {number} params.x The x coordinate of this button
@@ -33,7 +63,7 @@ class Button {
      * When this value is `false`, the button will be drawn something like this: ▭
      * When it is `true` it will be drawn like this: ▬
      * @param {string | CanvasGradient | CanvasPattern} params.textColor The color of the text inside the button
-     * @param {number[]} [params.textOffset=[0, 0]]
+     * @param {number[]} [params.textOffset=[0, 0]] The offset of the text in the button, the text coordinates will be `[textOffset[0] + x, textOffset[1] + y]`
      */
     constructor({
         text = '',
@@ -61,14 +91,15 @@ class Button {
         this.fill = fill
         this.textColor = textColor
         this.textOffset = textOffset
+        this.onclick = null
     }
 
     /**
      * Draws the button to the screen
      */
     draw() {
-        let canvas = document.querySelector('canvas')
-        let ctx = canvas.getContext('2d')
+        const canvas = document.querySelector('canvas')
+        const ctx = canvas.getContext('2d')
 
         ctx.beginPath()
         if (this.shape == 'circle') {
@@ -98,25 +129,28 @@ class Button {
         ctx.fillStyle = this.textColor
         ctx.textAlign = 'center'
         ctx.fillText(this.text, this.x + this.textOffset[0], this.y + this.textOffset[1])
-    }
+        
+        if (this.onclick === null) {
+            return
+        }
 
-    /**
-     * Adds a callback which gets called whenever the button gets clicked on
-     * @param {(ev: MouseEvent) => *} callback The function that will get called
-     */
-    addCallback(callback) {
-        let canvas = document.querySelector('canvas')
-        canvas.addEventListener('click', (ev) => {
+        this.callback = (ev) => {
             if (this.shape == 'circle') {
                 if (isPointInCircle(ev.offsetX, ev.offsetY, this.x, this.y, this.size)) {
-                    callback(ev)
+                    this.onclick(ev)
                 }
             } else {
                 if (isPointInRect(ev.offsetX, ev.offsetY, this.x, this.y, this.size)) {
-                    callback(ev)
+                    this.onclick(ev)
                 }
             }
-        })
+        }
+        canvas.addEventListener('click', this.callback)
+    }
+
+    removeCallback() {
+        const canvas = document.querySelector('canvas')
+        canvas.removeEventListener('click', this.callback)
     }
 }
 
